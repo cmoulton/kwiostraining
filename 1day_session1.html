@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
@@ -43,6 +43,13 @@
 				</section>
 
 				<section>
+					<h2>About Me</h2>
+						<p>Christina Moulton</p>
+						<p>Freelance iOS dev</p>
+						<p>Suffered through crappy syntax you won't need to bother with</p>
+				</section>
+
+				<section>
 					<h2>What will I learn?</h2>
 						<p>How to create basic native iOS apps from scratch without wasting a ton of time trying to work against the tools and the language.</p>
 
@@ -53,6 +60,12 @@
 							<li>What does the SDK make easy and what can’t be done</li>
 							<li>Key resources: tutorials, documentation, and third party libraries</li>
 						</ul>
+				</section>
+
+				<section>
+					<h2>What will I NOT learn?</h2>
+						<p>Game programming</p>
+						<p>Everything</p>
 				</section>
 
 				<section>
@@ -91,11 +104,150 @@
 				</section>
 
 				<section>
+					<h2>Objective-C: Syntax</h2>
+					<p>Class Header (.h)</p>
+					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
+#import "AnyOtherHeaderFile.h"
+ 
+@interface ClassName : SuperClass { 
+  // declare instance variables 
+  // (optional)
+  NSInteger _myInteger;
+} 
+
+// define properties 
+@property (nonatomic, strong) NSString *myString;
+// define methods
+- (anytype)doIt;
+- (anytype)doItWithA:(anytype)a; 
+- (anytype)doItWithA:(anytype)a andB:(anytype)b; 
++ (anytype)classDoIt;
+
+@end 
+							</code></pre>
+						<p><a href="http://cdn5.raywenderlich.com/downloads/RW-Objective-C-Cheatsheet-v1_2.pdf">Cheatsheet from RayWenderlich.com</a></p>
+				</section>
+
+				<section>
+					<h2>Objective-C: Syntax</h2>
+					<p>Class Implementation (.m)</p>
+					<pre><code data-trim style="font-size: 18px; margin-top: 10px;">
+#import "YourClassName.h" 
+ 
+@implementation ClassName 
+// implement methods (including any custom initializers)
+- (id)init
+{
+  self = [super init];
+  if (self) { // initialize ivars
+  }
+  return self;
+}
+- (anytype)doItWithA:(anytype)a andB:(anytype)b;
+{
+  NSLog(@"Doing it with %@ and %@", a, b);
+  return a;
+}
+@end
+							</code></pre>
+				</section>
+
+				<section>
+					<h2>Objective-C: Classes</h2>
+					<p>Create an Instance of a Class & Call Methods</p>
+					<pre><code data-trim style="font-size: 18px; margin-top: 10px;">
+ClassName * myClass = [[ClassName alloc] init];
+
+[myClass doIt];
+
+id returnValue = [myClass doItWithA:anA andB:aB];
+
+[ClassName classDoIt];
+							</code></pre>
+				</section>
+
+				<section>
+					<h2>Objective-C: Properties</h2>
+					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
+myClass.myString = @"a String";
+[myClass setMyString:@"a String"];
+aString = myClass.myString;
+aString = [myClass myString];
+							</code></pre>
+					<p>Qualifiers</p>
+					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
+@property (qualifiers) aType *aProperty;
+							</code></pre>
+					<p>ARC: strong, weak</p>
+					<p>Primitives: assign, copy</p>
+					<p>Threading: nonatomic, atomic</p>
+					<p>Accessors: readwrite, readonly</p>
+					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
+@property (nonatomic, strong) aType *aTypicalProperty;
+							</code></pre>
+				</section>
+
+				<section>
+					<h2>Objective-C: Variables</h2>
+					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
+						anyType myVariable;
+							</code></pre>
+					<p>Common Types</p>
+					<p>int, float, double</p>
+					<p>BOOL: YES, NO, TRUE, FALSE</p>
+					<p>ClassName *: e.g., NSString *, NSArray *</p>
+					<p>id: Ref to any object</p>
+				</section>
+
+				<section>
+					<h2>Objective-C: NSString</h2>
+					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
+						NSString *personOne = @"Ray"; 
+NSString *personTwo = @"Shawn"; 
+NSString *combinedString = [NSString stringWithFormat: 
+  @"%@: Hello, %@!", personOne, personTwo]; 
+NSLog(@"%@", combinedString);
+
+NSString *tipString = @"24.99"; 
+float tipFloat = [tipString floatValue]; 
+							</code></pre>
+							<p>Also NSMutableString</p>
+				</section>
+
+				<section>
+					<h2>Objective-C: NSArray</h2>
+					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
+						NSMutableArray *array = [NSMutableArray arrayWithObjects: 
+   personOne, personTwo, nil]; 
+[array addObject:@"Waldo"];
+NSString *waldo = [anArray objectAtIndex:2];
+NSLog(@"%d items!", array.count); 
+
+for (NSString *person in array) { 
+  NSLog(@"Person: %@", person); 
+} 
+
+// Xcode 4.4+ alt: array[2] 
+NSArray *anArray = @[@"John", @"Jane", "Waldo"];
+NSString *waldo = anArray[2];
+							</code></pre>
+							<p>Also NSMutableArray, NSSet, NSDictionary</p>
+				</section>
+
+
+				<section>
 					<h2>Objective-C</h2>
 						<p>Objective-C + SDK</p>
 						<p>UI: Direct Manipulation & Multi-Touch</p>
 						<p>Just released iOS 7</p>
 						<img src="img/ios7uptake.png" />
+				</section>
+
+
+
+				<section>
+					<h2>Resources</h2>
+						<p>http://www.raywenderlich.com/tutorials</p>
 				</section>
 
 				<section>
