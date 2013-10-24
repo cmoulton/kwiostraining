@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+		<link rel="stylesheet" href="css/theme/sky_lowercase_title.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
@@ -106,9 +106,7 @@
 				<section>
 					<h2>Objective-C: Syntax</h2>
 					<p>Class Header (.h)</p>
-					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
-#import "AnyOtherHeaderFile.h"
- 
+					<pre><code data-trim>#import "AnyOtherHeaderFile.h"
 @interface ClassName : SuperClass { 
   // declare instance variables 
   // (optional)
@@ -123,19 +121,17 @@
 - (anytype)doItWithA:(anytype)a andB:(anytype)b; 
 + (anytype)classDoIt;
 
-@end 
-							</code></pre>
+@end</code></pre>
 						<p><a href="http://cdn5.raywenderlich.com/downloads/RW-Objective-C-Cheatsheet-v1_2.pdf">Cheatsheet from RayWenderlich.com</a></p>
 				</section>
 
 				<section>
 					<h2>Objective-C: Syntax</h2>
 					<p>Class Implementation (.m)</p>
-					<pre><code data-trim style="font-size: 18px; margin-top: 10px;">
-#import "YourClassName.h" 
+					<pre><code data-trim>#import "YourClassName.h" 
  
 @implementation ClassName 
-// implement methods (including any custom initializers)
+// implement methods (including custom inits)
 - (id)init
 {
   self = [super init];
@@ -148,50 +144,42 @@
   NSLog(@"Doing it with %@ and %@", a, b);
   return a;
 }
-@end
-							</code></pre>
+@end</code></pre>
 				</section>
 
 				<section>
 					<h2>Objective-C: Classes</h2>
+					<p>Messaging:</p>
+						<pre><code data-trim>[receiverPointer message];</code></pre>
+						<pre><code data-trim>[receiverPointer messageWithParameter:aParameter];</code></pre>
+
 					<p>Create an Instance of a Class & Call Methods</p>
-					<pre><code data-trim style="font-size: 18px; margin-top: 10px;">
-ClassName * myClass = [[ClassName alloc] init];
+					<pre><code data-trim>ClassName * myClass = [[ClassName alloc] init];
 
 [myClass doIt];
 
 id returnValue = [myClass doItWithA:anA andB:aB];
 
-[ClassName classDoIt];
-							</code></pre>
+[ClassName classDoIt];</code></pre>
 				</section>
 
 				<section>
 					<h2>Objective-C: Properties</h2>
-					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
-myClass.myString = @"a String";
+					<pre>myClass.myString = @"a String";
 [myClass setMyString:@"a String"];
 aString = myClass.myString;
-aString = [myClass myString];
-							</code></pre>
+aString = [myClass myString];</code></pre>
 					<p>Qualifiers</p>
-					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
-@property (qualifiers) aType *aProperty;
-							</code></pre>
+					<pre><code data-trim>@property (nonatomic, strong) aType *aProperty;</code></pre>
 					<p>ARC: strong, weak</p>
 					<p>Primitives: assign, copy</p>
 					<p>Threading: nonatomic, atomic</p>
 					<p>Accessors: readwrite, readonly</p>
-					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
-@property (nonatomic, strong) aType *aTypicalProperty;
-							</code></pre>
 				</section>
 
 				<section>
 					<h2>Objective-C: Variables</h2>
-					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
-						anyType myVariable;
-							</code></pre>
+					<pre><code data-trim>anyType myVariable;</code></pre>
 					<p>Common Types</p>
 					<p>int, float, double</p>
 					<p>BOOL: YES, NO, TRUE, FALSE</p>
@@ -201,23 +189,20 @@ aString = [myClass myString];
 
 				<section>
 					<h2>Objective-C: NSString</h2>
-					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
-						NSString *personOne = @"Ray"; 
+					<pre><code data-trim>NSString *personOne = @"Ray"; 
 NSString *personTwo = @"Shawn"; 
 NSString *combinedString = [NSString stringWithFormat: 
   @"%@: Hello, %@!", personOne, personTwo]; 
-NSLog(@"%@", combinedString);
+NSLog(@"%@", combinedString);</code></pre>
 
-NSString *tipString = @"24.99"; 
-float tipFloat = [tipString floatValue]; 
-							</code></pre>
+<pre><code data-trim>NSString *tipString = @"24.99"; 
+float tipFloat = [tipString floatValue];</code></pre>
 							<p>Also NSMutableString</p>
 				</section>
 
 				<section>
 					<h2>Objective-C: NSArray</h2>
-					<pre><code data-trim style="font-size: 24px; margin-top: 10px;">
-						NSMutableArray *array = [NSMutableArray arrayWithObjects: 
+					<pre><code data-trim>NSMutableArray *array = [NSMutableArray arrayWithObjects: 
    personOne, personTwo, nil]; 
 [array addObject:@"Waldo"];
 NSString *waldo = [anArray objectAtIndex:2];
@@ -229,20 +214,161 @@ for (NSString *person in array) {
 
 // Xcode 4.4+ alt: array[2] 
 NSArray *anArray = @[@"John", @"Jane", "Waldo"];
-NSString *waldo = anArray[2];
-							</code></pre>
+NSString *waldo = anArray[2];</code></pre>
 							<p>Also NSMutableArray, NSSet, NSDictionary</p>
 				</section>
 
-
 				<section>
-					<h2>Objective-C</h2>
-						<p>Objective-C + SDK</p>
-						<p>UI: Direct Manipulation & Multi-Touch</p>
-						<p>Just released iOS 7</p>
-						<img src="img/ios7uptake.png" />
+					<h2>Objective-C: Blocks</h2>
+						<p>Encapsulated chunks of code</p>
+						<p>Closures</p>
+						<pre><code data-trim>[UIView animateWithDuration:2.0
+  animations:^ {
+    self.view.alpha = 1.0;
+    self.view.frame = CGRectMake(0, 0, 72, 96);
+  }
+];</code></pre>
+
+<pre><code data-trim>int multiplier = 7;
+int (^myBlock)(int) = ^(int num) {
+    return num * multiplier;
+};
+NSLog(@"%d", myBlock(3)); // prints 21
+multiplier = 8;
+NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 				</section>
 
+				<section>
+					<h2>iOS Design Patterns</h2>
+						<p>MVC</p>
+						<p>Singleton</p>
+						<p>Protocol & Delegate</p>
+						<p>Decorator: Category</p>
+						<p>Observer</p>
+				</section>
+
+				<section>
+					<h2>Singleton</h2>
+						<p>AppDelegate, NSUserDefaults, UIScreen, NSFileManager</p>
+						<p>Common for resources: Reachability, Location Services, Logging, ...</p>
+						<p>Thread-safe access</p>
+						<pre><code data-trim>+ (MySingleton *)sharedInstance
+{
+  static dispatch_once_t once;
+  static MySingleton * sharedInstance;
+  dispatch_once(&once, ^{
+    sharedInstance = [[self alloc] init];
+  });
+  return sharedInstance;
+}</code></pre>
+				</section>
+
+				<section>
+					<h2>MVC</h2>
+						<p>Model: Data Model Objects</p>
+						<p>View: UIView & subclasses</p>
+						<p>Controller: UIViewController & subclasses</p>
+						<p>Model <-> Controller <-> View</p>
+						<p>(Not uncommon to merge Model & View, e.g., UITableviews)</p>
+				</section>
+
+				<section>
+					<h2>Protocol / Delegate</h2>
+						<p>Common in UIKit classes, e.g., UITableview Datasource & Delegate</p>
+						<p>Datasource is a specific type of delegate</p>
+						<pre><code data-trim>@protocol InfoViewDelegate<NSObject>
+- (void)showAppShareView;
+- (void)restartTour;
+@end
+
+@interface InfoViewController: UIViewController
+@property (nonatomic, strong) NSObject<MyDelegate> *delegate;
+@end</code></pre>
+				</section>
+
+				<section>
+					<h2>Category (Decorator)</h2>
+						<p>Extend a class with additional methods</p>
+						<p>Included at compile time</p>
+						<pre><code data-trim>@interface ClassToAddMethodsTo (category)
+  // ...methods go here
+@end</code></pre>
+
+<pre><code data-trim>@interface NSString (MD5)
+- (NSString *)MD5Hash;
+}
+@end</code></pre>
+				</section>
+
+				<section>
+					<h2>Observer</h2>
+						<p>KVO: Key-Value Observing</p>
+						<p>Controller can observe Model for changes</p>
+						<p>Register for notifications</p>
+						  <pre><code data-trim style="font-size:26px;">[[NSNotificationCenter defaultCenter] addObserver:self 
+						  	selector:@selector(keyboardDidShow:) 
+						  	name:UIKeyboardDidShowNotification 
+						  	object:nil];</code></pre>
+
+<pre><code data-trim style="font-size:26px;">- (void)keyboardDidShow:(NSNotification *)aNotification
+{
+	// ...
+}</code></pre>
+				</section>
+
+				<section>
+					<h2>Memory Management</h2>
+						<p>The old way: Reference Counting</p>
+						<p>Need it?</p>
+							<pre><code data-trim>[anObject retain];</code></pre>
+						<p>Done with it?</p>
+							<pre><code data-trim>[anObject release];</code></pre>
+						<p>Dealloc'd when release count reaches 0</p>
+				</section>
+
+				<section>
+					<h2>Autorelease</h2>
+						<p>Return it without retaining it, but don't dealloc until caller is done with it</p>
+						<pre><code data-trim>- (id)myMethod {
+  return [[[MyObject alloc] init] autorelease];
+}
+
+- (void)someOtherMethod {
+id instance = [obj myMethod];
+// not dealloc'd until after this method returns
+}</code></pre>
+				</section>
+
+				<section>
+					<h2>Automatic Reference Counting (ARC)</h2>
+						<p>Retain/release calls inserted by compiler</p>
+						<p>No reason not to use (iOS 5.0+)</p>
+						<p>Qualifiers:</p>
+						<p>Strong: Owns it</p>
+						<p>Weak: Non-owning reference (e.g., to parent). Set to nil when no strong references to object exist</p>
+						<p>Unsafe unretained: Non-owning reference. Not set to nil (dangling pointers)</p>
+						<p>Autoreleasing: Passed by reference and autoreleased on return</p>
+				</section>
+
+				<section>
+					<h2>Automatic Reference Counting (ARC)</h2>
+						<p>Consider object graph: Leaks if retain cycles</p>
+						<pre><code data-trim>@interface ClassA
+@property (nonatomic, strong) ClassB *objectB;
+@end
+
+@interface ClassB
+@property (nonatomic, strong) ClassA *objectA;
+@end</code></pre>
+						
+<pre><code data-trim>@interface ClassA
+@property (nonatomic, strong) ClassB *objectB;
+@end
+
+@interface ClassB
+@property (nonatomic, weak) ClassA *objectA;
+@end</code></pre>
+				</section>
 
 
 				<section>
@@ -287,7 +413,7 @@ NSString *waldo = anArray[2];
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					/*{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },*/
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
