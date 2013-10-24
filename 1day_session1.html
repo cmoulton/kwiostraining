@@ -316,6 +316,60 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 }</code></pre>
 				</section>
 
+				<section>
+					<h2>Memory Management</h2>
+						<p>The old way: Reference Counting</p>
+						<p>Need it?</p>
+							<pre><code data-trim>[anObject retain];</code></pre>
+						<p>Done with it?</p>
+							<pre><code data-trim>[anObject release];</code></pre>
+						<p>Dealloc'd when release count reaches 0</p>
+				</section>
+
+				<section>
+					<h2>Autorelease</h2>
+						<p>Return it without retaining it, but don't dealloc until caller is done with it</p>
+						<pre><code data-trim>- (id)myMethod {
+  return [[[MyObject alloc] init] autorelease];
+}
+
+- (void)someOtherMethod {
+id instance = [obj myMethod];
+// not dealloc'd until after this method returns
+}</code></pre>
+				</section>
+
+				<section>
+					<h2>Automatic Reference Counting (ARC)</h2>
+						<p>Retain/release calls inserted by compiler</p>
+						<p>No reason not to use (iOS 5.0+)</p>
+						<p>Qualifiers:</p>
+						<p>Strong: Owns it</p>
+						<p>Weak: Non-owning reference (e.g., to parent). Set to nil when no strong references to object exist</p>
+						<p>Unsafe unretained: Non-owning reference. Not set to nil (dangling pointers)</p>
+						<p>Autoreleasing: Passed by reference and autoreleased on return</p>
+				</section>
+
+				<section>
+					<h2>Automatic Reference Counting (ARC)</h2>
+						<p>Consider object graph: Leaks if retain cycles</p>
+						<pre><code data-trim>@interface ClassA
+@property (nonatomic, strong) ClassB *objectB;
+@end
+
+@interface ClassB
+@property (nonatomic, strong) ClassA *objectA;
+@end</code></pre>
+						
+<pre><code data-trim>@interface ClassA
+@property (nonatomic, strong) ClassB *objectB;
+@end
+
+@interface ClassB
+@property (nonatomic, weak) ClassA *objectA;
+@end</code></pre>
+				</section>
+
 
 				<section>
 					<h2>Resources</h2>
