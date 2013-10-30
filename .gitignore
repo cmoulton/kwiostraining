@@ -23,9 +23,7 @@ bin-release-temp
 *.[Cc]ache
 *.bak
 publish
-[Dd]debug
-*.csv
-*.pyd
 *.deploy
 Debug
 *.orig
+*.xccheckout
