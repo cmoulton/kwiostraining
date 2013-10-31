@@ -65,21 +65,22 @@
 						<p>Devices, capabilities, resolutions</p>
 						<p>SDKs</p>
 						<p>Supporting older devices</p>
+						<p>App Store & iTunesConnect</p>
 						<p>Developer Portal</p>
-						<p>App Store & iTunes Connect</p>
 				</section>
 
 				<section>
 					<h2>Device Capabilities</h2>
 						<p><a href="http://iossupportmatrix.com/">iOSSupportMatrix.com</a></p>
 						<p>Hardware by capabilities <a href="https://developer.apple.com/library/ios/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html#//apple_ref/doc/uid/TP40013599-CH17-SW1">iOS Device Compatibility (Apple)</a></p>
-						<p>If not key feature, check for presence & degrade gracefully (e.g., select photo vs. take photo)</p>
+						<p>If not key feature, check for presence & degrade gracefully (e.g., select photo vs take photo)</p>
 				</section>
 
 				<section>
 					<h2>Device Resolutions</h2>
-					<img src="img/iosres.png" />
-						<p><a href="http://iosres.com/">iOSRes.com</a></p>
+						<p><a href="http://iossupportmatrix.com/">iOSSupportMatrix.com</a></p>
+						<p>Hardware by capabilities <a href="https://developer.apple.com/library/ios/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html#//apple_ref/doc/uid/TP40013599-CH17-SW1">iOS Device Compatibility (Apple)</a></p>
+						<p>If not key feature, check for presence & degrade gracefully (e.g., select photo vs take photo)</p>
 				</section>
 
 				<section>
@@ -122,28 +123,6 @@
 							<td>1st (Sept 2007)</td>
 						</tr>
 					</table>
-				</section>
-
-				<section>
-					<h2>Supporting Older Devices</h2>
-					<p>Check headers / docs or <a href="http://www.deploymateapp.com">Deploymate</a>
-					<p>Weak link frameworks (mark as optional)</p>
-					<p>Check for support at run time</p>
-					<pre><code data-trim style="font-size:18pt;">NSString *osVersion = [[UIDevice currentDevice] systemVersion];</pre></code>
-
-					<pre><code data-trim style="font-size:18pt;">if ([AClass respondsToSelector:@selector(aMethod)]) {
-    [AClass aMethod];
-} else {
-    //Fail gracefully
-}
-</code></pre>
-
-					<pre><code data-trim style="font-size:18pt;">// iOS 4.2+
-if ([AClass class]) {
-    // Safe to use AClass
-}
-</code></pre>
-				<p><a href="http://www.raywenderlich.com/42591/supporting-multiple-ios-versions-and-devices">RayWenderlich.com Tutorial</a></p>
 				</section>
 
 				<section>
