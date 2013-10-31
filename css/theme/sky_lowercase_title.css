@@ -144,3 +144,9 @@ body {
   margin-top: 10px;
   color: #333333;
 }
+
+.reveal table, .reveal table th, .reveal table td {
+  border: 1px solid black;
+  border-collapse:collapse;
+  padding:4px;
+}

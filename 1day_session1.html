@@ -70,6 +70,23 @@
 				</section>
 
 				<section>
+					<h2>Why iOS?</h2>
+						<p>App Store revenues: $5B im 2012</p>
+						<p>Employment & contract opportunities</p>
+						<p>Something different</p>
+				</section>
+
+				<section>
+					<h2>Why native apps?</h2>
+						<p>Speed</p>
+						<p>Ease of UI development & hardware integration</p>
+						<p>Richer UX</p>
+						<p>Earlier access to all device features</p>
+						<p>Easier persistence and offline operation</p>
+						<p><em>More this afternoon</em></p>
+				</section>
+
+				<section>
 					<h2>What stops devs from getting in to iOS?</h2>
 						<p>Syntax</p>
 						<p>Design patterns</p>
@@ -79,7 +96,7 @@
 
 				<section>
 					<h2>Schedule</h2>
-						<p>Session 1: Design Patterns & Obj-C Features, Apple's Tools, SDK & Core Classes</p>
+						<p><b>Session 1: Design Patterns & Obj-C Features, Apple's Tools, SDK & Core Classes</b></p>
 						<p>Exercise 1: Interface Builder, IBOutlets & IBActions</p>
 						<p><em>Lunch</em></p>
 						<p>Session 2: iOS App Ecosystem, 3rd Party Tools & Testing, Key Resources</p>
@@ -427,7 +444,7 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 				</section>
 
 				<section>
-					<h2>Connecting UI to Code: Counter Exercise</h2>
+					<h2>Exercise 1: Tap Counter</h2>
 					<p>Create a project with a button and a label</p>
 					<p>Add an integer property or ivar to track counts</p>
 					<p>Tapping on the button should change the label text (label.text) to display the number of times the button has been pressed</p>
@@ -438,18 +455,13 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 					<h2>Connecting UI to Code</h2>
 					<pre><code data-trim style="font-size: 18pt">@property (nonatomic, weak) IBOutlet UIButton *counterButton;
 @property (nonatomic, weak) IBOutlet UILabel *counterLabel;
+@property (nonatomic) NSInteger tapCount;
 - (IBAction)incrementAndUpdateCount:(id)sender
 {
   self.tapCount++;
   self.counterLabel.text = [NSString stringWithFormat:@"Taps: %d", 
                             self.tapCount];
 }</code></pre>
-				</section>
-
-				<section>
-					<h2>Key Classes</h2>
-					<p>UIViewController</p>
-					<p>UIView</p>
 				</section>
 
 				<section>
