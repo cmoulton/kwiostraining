@@ -193,11 +193,14 @@ id returnValue = [myClass doItWithA:anA andB:aB];
 				<section>
 					<h2>Objective-C: Variables</h2>
 					<pre><code data-trim>anyType myVariable;</code></pre>
+					<pre><code data-trim>NSInteger anInteger;
+NSObject *anObject;
+id anotherObject;</code></pre>
 					<p>Common Types</p>
-					<p>int, float, double</p>
+					<p>int (NSInteger), float, double</p>
 					<p>BOOL: YES, NO, TRUE, FALSE</p>
 					<p>ClassName *: e.g., NSString *, NSArray *</p>
-					<p>id: Ref to any object</p>
+					<p>id: Ref to any object (NSObject * or subclass)</p>
 				</section>
 
 				<section>
@@ -206,11 +209,12 @@ id returnValue = [myClass doItWithA:anA andB:aB];
 [myClass setMyString:@"a String"];
 aString = myClass.myString;
 aString = [myClass myString];</code></pre>
+					<p>Compile-time autosynthesis since Xcode 4.4</p>
 				</section>
 
 				<section>
 					<h2>Objective-C: Properties</h2>
-					<p>Qualifiers</p>
+					<p>Qualifiers in declaration</p>
 					<pre><code data-trim>@property (nonatomic, strong) aType *aProperty;</code></pre>
 					<p>ARC: strong, weak</p>
 					<p>Primitives: assign, copy</p>
@@ -220,11 +224,11 @@ aString = [myClass myString];</code></pre>
 
 				<section>
 					<h2>Objective-C: NSString</h2>
-					<pre><code data-trim>NSString *personOne = @"Christina"; 
-NSString *personTwo = @"Kareem"; 
-NSString *combinedString = [NSString stringWithFormat: 
-  @"%@: Hello, %@!", personOne, personTwo]; 
-NSLog(@"%@", combinedString);</code></pre>
+					<pre><code data-trim>NSString *catOne = @"Mittens"; 
+NSString *catTwo = @"Mr. Bigglesworth"; 
+NSString *statement = [NSString stringWithFormat: 
+  @"The cats to be worshipped are %@ and %@", catOne, catTwo]; 
+NSLog(@"%@", statement);</code></pre>
 
 <pre><code data-trim>NSString *tipString = @"24.99"; 
 float tipFloat = [tipString floatValue];</code></pre>
@@ -233,17 +237,18 @@ float tipFloat = [tipString floatValue];</code></pre>
 
 				<section>
 					<h2>Objective-C: NSArray</h2>
-					<pre><code data-trim>NSMutableArray *array = [NSMutableArray arrayWithObjects: 
-   personOne, personTwo, nil]; 
-[array addObject:@"Waldo"];
-NSString *waldo = [anArray objectAtIndex:2];
-NSLog(@"%d items!", array.count); 
+					<pre><code data-trim style="font-size: 20pt;">NSMutableArray *array = [NSMutableArray arrayWithObjects: 
+   catOne, catTwo, nil]; 
+[array addObject:@"Sylvester"];
+NSLog(@"That cat's name is: %@", sylvester);
+NSString *sylvester = [array objectAtIndex:2];
+NSLog(@"%d cats!", array.count); 
 
-for (NSString *person in array) { 
-  NSLog(@"Person: %@", person); 
-} 
+for (NSString *cat in array) { 
+  NSLog(@"Cat: %@", cat); 
+}</code></pre>
 
-// Xcode 4.4+ alt: array[2] 
+<pre><code data-trim style="font-size: 20pt;">// Xcode 4.4+ alt: array[2] 
 NSArray *anArray = @[@"John", @"Jane", "Waldo"];
 NSString *waldo = anArray[2];</code></pre>
 							<p>Also NSMutableArray, NSSet, NSDictionary</p>
@@ -445,27 +450,6 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 				</section>
 
 				<section>
-					<h2>Exercise 1: Tap Counter</h2>
-					<p>Create a project with a button and a label</p>
-					<p>Add an integer property or ivar to track counts</p>
-					<p>Tapping on the button should change the label text (label.text) to display the number of times the button has been pressed</p>
-					<p>([NSString stringWithFormat:@"Taps: %d", self.tapCount])</p>
-				</section>
-
-				<section>
-					<h2>Connecting UI to Code</h2>
-					<pre><code data-trim style="font-size: 18pt">@property (nonatomic, weak) IBOutlet UIButton *counterButton;
-@property (nonatomic, weak) IBOutlet UILabel *counterLabel;
-@property (nonatomic) NSInteger tapCount;
-- (IBAction)incrementAndUpdateCount:(id)sender
-{
-  self.tapCount++;
-  self.counterLabel.text = [NSString stringWithFormat:@"Taps: %d", 
-                            self.tapCount];
-}</code></pre>
-				</section>
-
-				<section>
 					<h2>UIKit: Bars</h2>
 					<p>Toolbar <img src="img/uikit/mail_toolbar_ipad_2x.png"/></p>
 					<div style="float:left; width: 45%">
@@ -476,6 +460,8 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 						<p>Tab bar <img src="img/uikit/music_tab_bar_iphone_2x.png"/></p>
 						<p>Search bar <img src="img/uikit/search_bar_prominent_2x.png"/></p>
 					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
 				</section>
 
 				<section>
@@ -490,6 +476,8 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 					<div style="float:left; width: 33%">
 						Cell Styles<img src="img/uikit/value_1_cell_2x.png"/>
 					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
 				</section>
 
 				<section>
@@ -498,6 +486,8 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 					<div style="margin-left:auto; margin-right:auto; width: 33%">
 						<img src="img/uikit/collection_view_2x.png"/>
 					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
 				</section>
 
 				<section>
@@ -515,13 +505,15 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 						<img src="img/uikit/scroll_view_2x.png"/>
 					</div>
 					<div style="float:left; width: 25%">
-						<p>UIPageViewController</p>
+						<p>UIPage ViewController</p>
 						<img src="img/uikit/page_view.jpg"/>
 					</div>
 					<div style="float:right; width: 25%">
 						<p>Map Kit: MKMapView</p>
 						<img src="img/uikit/map_view_photos_2x.png"/>
 					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
 				</section>
 
 				<section>
@@ -534,57 +526,114 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 						<p>UISplitViewController (iPad only)</p>
 						<img src="img/uikit/split_view_2x.png"/>
 					</div>
+					<div><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
 				</section>
 
 				<section>
-					<h2>Key Classes: UI: Controls</h2>
-					<p>Activity indicator (spinner)</p>
-					<p>Picker / Date Picker</p>
-					<p>Buttons: Add Contact, Detail Disclosure, Info</p>
-					<p>Label</p>
-					<p>Page control</p>
-					<p>Progress view</p>
-					<p>Refresh control</p>
-					<p>Button</p>
-					<p>Segmented control</p>
-					<p>Slider</p>
-					<p>Stepper</p>
-					<p>Switch</p>
-					<p>Text field</p>
+					<h2>Key Classes: UI: <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Controls.html#//apple_ref/doc/uid/TP40006556-CH15-SW1">Controls</a>
+
+					</h2>
+					<div style="float:left; width: 33%">
+						<p>Activity indicator (spinner)</p>
+						<img src="img/uikit/activity_indicator_2x.png"/>
+						<p>Picker / Date Picker</p>
+						<img src="img/uikit/date_picker_2x.png"/>
+						<p>Buttons</p>
+						<img src="img/uikit/contact_add_7_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Label</p>
+						<p>Progress view</p>
+						<img src="img/uikit/progress_view_2x.png"/>
+						<p>Refresh control</p>
+						<img src="img/uikit/refresh_control_2x.png"/>
+						<p>Segmented control</p>
+						<img src="img/uikit/segmented_control_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Slider</p>
+						<img src="img/uikit/slider_2x.png"/>
+						<p>Stepper</p>
+						<img src="img/uikit/stepper_2x.png"/>
+						<p>Switch</p>
+						<img src="img/uikit/switch_on_2x.png"/>
+						<p>Text field</p>
+						<img src="img/uikit/text_field_2x.png"/>
+					</div>
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
 				</section>
 
 				<section>
 					<h2>Key Classes: UI: Temporary Views</h2>
-					<p>Alert</p>
-					<p>Action sheet</p>
-					<p>Modal view</p>
+					<div style="float:left; width: 30%">
+						<p>Alert</p>
+						<img src="img/uikit/alert_2x.png"/>
+					</div>
+					<div style="float:left; width: 30%">
+						<p>Action sheet</p>
+						<img src="img/uikit/action_sheet_iphone_2x.png"/>
+					</div>
+					<div style="float:left; width: 30%">
+						<p>Modal view</p>
+						<img src="img/uikit/modal_view_mail_compose_2x.png"/>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
 				</section>
 
 				<section>
-					<h2>Key Classes: iOS Technologies</h2>
-					<p>Keyboard & input views</p>
-					<p>Multitasking</p>
-					<p>Social media</p>
-					<p>In-App purchase</p>
-					<p>Game center</p>
-					<p>Notifications: Push & local/p>
-					<p>iAd</p>
-					<p>AirPrint</p>
-					<p>Location</p>
-					<p>Sound</p>
-					<p>Accessibiligy</p>
-					<p>Edit menu</p>
-					<p>Undo: buttons & shaking</p>
-					<p>iCloud</p>
-					<p>Passbook</p>
+					<h2>Key Classes: <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Passbook.html#//apple_ref/doc/uid/TP40006556-CH33-SW1">iOS Technologies</a></h2>
+					<div style="float:left; width: 33%">
+						<p>Keyboard & input views</p>
+						<p>Multitasking</p>
+						<p>Social media & Sharing</p>
+						<p>In-App purchase</p>
+						<p>Game center</p>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Notifications: Push & local</p>
+						<p>iAd</p>
+						<p>AirPrint</p>
+						<p>Location Services</p>
+						<p>Sound</p>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Accessibiligy</p>
+						<p>Edit menu</p>
+						<p>Undo: buttons & shaking</p>
+						<p>iCloud</p>
+						<p>Passbook</p>
+					</div>
 				</section>
-
 
 				<section>
 					<h2>Resources</h2>
 						<p><a href="http://www.raywenderlich.com/tutorials">Ray Wenderlich iPhone Tutorials</a></p>
 						<p><a href-"https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG">Apple Mobile Human Interface Guidelines</a></p>
+				</section>
 
+				<section>
+					<h2>Exercise 1: Tap Counter</h2>
+					<p>Create a project with a button and a label</p>
+					<p>Add an integer property or ivar to track counts</p>
+					<p>Tapping on the button should change the label text (label.text) to display the number of times the button has been pressed</p>
+					<p>([NSString stringWithFormat:@"Taps: %d", self.tapCount])</p>
+					<p><em>Challenges:</em></p>
+					<p><em>Add a clear count button to restart</em></p>
+					<p><em>Change to a shake or swipe gesture counter</em></p>
+				</section>
+
+				<section>
+					<h2>Connecting UI to Code</h2>
+					<pre><code data-trim style="font-size: 18pt">@property (nonatomic, weak) IBOutlet UIButton *counterButton;
+@property (nonatomic, weak) IBOutlet UILabel *counterLabel;
+@property (nonatomic) NSInteger tapCount;
+- (IBAction)incrementAndUpdateCount:(id)sender
+{
+  self.tapCount++;
+  self.counterLabel.text = [NSString stringWithFormat:@"Taps: %d", 
+                            self.tapCount];
+}</code></pre>
 				</section>
 
 				<section>

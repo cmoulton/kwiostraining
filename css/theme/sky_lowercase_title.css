@@ -150,3 +150,8 @@ body {
   border-collapse:collapse;
   padding:4px;
 }
+
+.reveal small
+{
+  font-size: 20px;
+}
