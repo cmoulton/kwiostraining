@@ -267,7 +267,7 @@ $ open MyProject.xcworkspace
 					<h2>Create a Session Model Class</h2>
 					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">@interface RKConferenceSession : NSObject
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *sessionDescription;
 @property (nonatomic, copy) NSString *start_time;
 @property (nonatomic, copy) NSString *end_time;
 @property (nonatomic, copy) NSString *type;
@@ -276,7 +276,7 @@ $ open MyProject.xcworkspace
 RKObjectMapping *mapping = [RKObjectMapping 
 mappingForClass:[RKConferenceSession class]];
   [mapping addAttributeMappingsFromDictionary:
-  @{@"name": @"name", @"description":@"description",
+  @{@"name": @"name", @"description":@"sessionDescription",
     @"start_time":@"start_time", @"end_time":@"end_time", 
     @"type":@"type",}];
 
@@ -311,7 +311,7 @@ RKObjectRequestOperation *operation =
 					<h2>Add a tableview in the storyboard</h2>
 					<p>Drag & drop</p>
 					<p>Create a custom UITableViewController subclass & assign it in the storyboard</p>
-					<p>Add a prototype cell in the storyboard</p>
+					<p>Add a prototype cell in the storyboard, select the detail style</p>
 				</section>
 
 				<section>
@@ -381,7 +381,7 @@ RKObjectRequestOperation *operation =
 				<section>
 					<h2>Tapping on a session should show a larger view of the session with details</h2>
 					<p>In the storyboard, add a detail view with labels to show the details (set lines = 0 for description so it'll auto-resize)</p>
-					<p>Add a custom UIViewController subclass with IBOutlet properties for each label</p>
+					<p>Add a custom UIViewController subclass with IBOutlet properties for each label and a property to hold the Session Model Object</p>
 					<p>Hook up the outlets in the storyboard</p>
 					<p>Embed the tableview in a navigation controller</p>
 					<p>Right-click on the tableview prototype cell and drag a connection to the detail view. Choose "Selection Segue: Push"</p>
@@ -390,7 +390,45 @@ RKObjectRequestOperation *operation =
 				<section>
 					<h2>Tapping on a session should show a larger view of the session with details (continued)</h2>
 					<p>Now we see the detail view, but the details aren't being set</p>
-					<p>In the tableview controller, we need to set the properties in prepareForSegue</p>
+					<p>In the tableview controller, we need to set the properties in prepareForSegue:</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">#import "SessionDetailViewController.h"
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  // Figure out which cell they tapped on
+  NSInteger selectionIndex = 
+    [self.tableView indexPathForSelectedRow].row;
+  RKConferenceSession *session = self.sessions[selectionIndex];
+  
+  // Get the new view controller
+  SessionDetailViewController *detailViewController = 
+    (SessionDetailViewController *)[segue destinationViewController];
+  // Pass the selected object to the new view controller.
+  detailViewController.session = session;
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Tapping on a session should show a larger view of the session with details (continued)</h2>
+					<p>Set all of the label text in the detail view:</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  if (self.session)
+  {
+    self.nameLabel.text = self.session.name;
+    self.startTimeLabel.text = self.session.start_time;
+    self.endTimeLabel.text = self.session.end_time;
+    self.typeLabel.text = self.session.type;
+    self.descriptionLabel.text = self.session.sessionDescription;
+  }
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
 				</section>
 
 				<section>
