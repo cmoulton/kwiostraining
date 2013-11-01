@@ -13,6 +13,7 @@
 		CF31274A182452B20098586B /* RKConferenceSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CF312749182452B20098586B /* RKConferenceSession.m */; };
 		CF31274C18245BA50098586B /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF31274B18245BA50098586B /* Storyboard.storyboard */; };
 		CF31274F18245BDD0098586B /* SessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF31274E18245BDD0098586B /* SessionsTableViewController.m */; };
+		CF312752182461B60098586B /* SessionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF312751182461B60098586B /* SessionDetailViewController.m */; };
 		CF58957A18244FD50045F4A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957918244FD50045F4A6 /* Foundation.framework */; };
 		CF58957C18244FD50045F4A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957B18244FD50045F4A6 /* CoreGraphics.framework */; };
 		CF58957E18244FD50045F4A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957D18244FD50045F4A6 /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 		CF31274B18245BA50098586B /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		CF31274D18245BDD0098586B /* SessionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsTableViewController.h; sourceTree = "<group>"; };
 		CF31274E18245BDD0098586B /* SessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsTableViewController.m; sourceTree = "<group>"; };
+		CF312750182461B60098586B /* SessionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailViewController.h; sourceTree = "<group>"; };
+		CF312751182461B60098586B /* SessionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailViewController.m; sourceTree = "<group>"; };
 		CF58957618244FD50045F4A6 /* RestTweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestTweet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF58957918244FD50045F4A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CF58957B18244FD50045F4A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +140,8 @@
 				CF312749182452B20098586B /* RKConferenceSession.m */,
 				CF31274D18245BDD0098586B /* SessionsTableViewController.h */,
 				CF31274E18245BDD0098586B /* SessionsTableViewController.m */,
+				CF312750182461B60098586B /* SessionDetailViewController.h */,
+				CF312751182461B60098586B /* SessionDetailViewController.m */,
 				CF58958018244FD50045F4A6 /* Supporting Files */,
 			);
 			path = RestTweet;
@@ -302,6 +307,7 @@
 			files = (
 				CF58958A18244FD50045F4A6 /* AppDelegate.m in Sources */,
 				CF58958618244FD50045F4A6 /* main.m in Sources */,
+				CF312752182461B60098586B /* SessionDetailViewController.m in Sources */,
 				CF31274F18245BDD0098586B /* SessionsTableViewController.m in Sources */,
 				CF31274A182452B20098586B /* RKConferenceSession.m in Sources */,
 			);

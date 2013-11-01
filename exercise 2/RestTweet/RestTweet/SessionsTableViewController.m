@@ -9,6 +9,7 @@
 #import "SessionsTableViewController.h"
 #import <RestKit/RestKit.h>
 #import "RKConferenceSession.h"
+#import "SessionDetailViewController.h"
 
 @implementation SessionsTableViewController
 
@@ -18,7 +19,7 @@
   
   RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[RKConferenceSession class]];
   [mapping addAttributeMappingsFromDictionary:@{@"name": @"name",
-                                                @"description":@"description",
+                                                @"description":@"sessionDescription",
                                                 @"start_time":@"start_time",
                                                 @"end_time":@"end_time",
                                                 @"type":@"type",}];
@@ -73,16 +74,19 @@
   return cell;
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a story board-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- 
- */
+#pragma mark - Navigation
+
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  // Figure out which cell they tapped on
+  NSInteger selectionIndex = [self.tableView indexPathForSelectedRow].row;
+  RKConferenceSession *session = self.sessions[selectionIndex];
+  
+  // Get the new view controller using [segue destinationViewController].
+  SessionDetailViewController *detailViewController = (SessionDetailViewController *)[segue destinationViewController];
+  // Pass the selected object to the new view controller.
+  detailViewController.session = session;
+}
 
 @end

@@ -377,8 +377,20 @@ RKObjectRequestOperation *operation =
   return cell;
 }</code></pre>
 				</section>
+
 				<section>
 					<h2>Tapping on a session should show a larger view of the session with details</h2>
+					<p>In the storyboard, add a detail view with labels to show the details (set lines = 0 for description so it'll auto-resize)</p>
+					<p>Add a custom UIViewController subclass with IBOutlet properties for each label</p>
+					<p>Hook up the outlets in the storyboard</p>
+					<p>Embed the tableview in a navigation controller</p>
+					<p>Right-click on the tableview prototype cell and drag a connection to the detail view. Choose "Selection Segue: Push"</p>
+				</section>
+
+				<section>
+					<h2>Tapping on a session should show a larger view of the session with details (continued)</h2>
+					<p>Now we see the detail view, but the details aren't being set</p>
+					<p>In the tableview controller, we need to set the properties in prepareForSegue</p>
 				</section>
 
 				<section>

@@ -13,7 +13,7 @@
 @interface RKConferenceSession : NSObject
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *sessionDescription;
 @property (nonatomic, copy) NSString *start_time;
 @property (nonatomic, copy) NSString *end_time;
 @property (nonatomic, copy) NSString *type;
