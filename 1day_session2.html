@@ -224,14 +224,14 @@ if ([AClass class]) {
 				</section>
 
 				<section>
-					<h2>Exercise 2: Twitter Client</h2>
+					<h2>Exercise 2: Conference Schedule</h2>
 					<p>JSON REST APIs, Storyboards & Tableviews</p>
 					<p>Install & import RESTKit</p>
-					<p>Create a Tweet Model Class</p>
-					<p>Load public tweets</p>
+					<p>Create a Session Model Class</p>
+					<p>Load sessions</p>
 					<p>Add a tableview in the storyboard</p>
-					<p>Show the tweets as cells in the storyboard</p>
-					<p>Tapping on a tweet should show a larger view of the tweet (transition to a detail view)</p>
+					<p>Show the sessions as cells in the storyboard</p>
+					<p>Tapping on a session should show a larger view of the session with details</p>
 					<p><em>Want to try a lower level exercise? <a href="http://www.raywenderlich.com/2965/how-to-write-an-ios-app-that-uses-a-web-service">Connecting to webservice (RayWenderlich.com)</a></em></p>
 				</section>
 
@@ -264,54 +264,121 @@ $ open MyProject.xcworkspace
 				</section>
 
 				<section>
-					<h2>Create a Tweet Model Class</h2>
-					<pre><code data-trim>@interface RKTweet : NSObject
-@property (nonatomic, copy) NSNumber *userID;
-@property (nonatomic, copy) NSString *username;
-@property (nonatomic, copy) NSString *text;
+					<h2>Create a Session Model Class</h2>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">@interface RKConferenceSession : NSObject
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *start_time;
+@property (nonatomic, copy) NSString *end_time;
+@property (nonatomic, copy) NSString *type;
 @end
 
 RKObjectMapping *mapping = [RKObjectMapping 
-    mappingForClass:[RKTweet class]];
-[mapping addAttributeMappingsFromDictionary:@{
-    @"user.name":   @"username",
-    @"user.id":     @"userID",
-    @"text":        @"text"
-}];</code></pre>
+mappingForClass:[RKConferenceSession class]];
+  [mapping addAttributeMappingsFromDictionary:
+  @{@"name": @"name", @"description":@"description",
+    @"start_time":@"start_time", @"end_time":@"end_time", 
+    @"type":@"type",}];
+
+RKResponseDescriptor *descriptor = 
+						[RKResponseDescriptor responseDescriptorWithMapping:mapping 
+						method:RKRequestMethodAny pathPattern:nil 
+						keyPath:@"objects" statusCodes:nil];</code></pre>
 				</section>
 
 				<section>
-					<h2>Load public tweets</h2>
-					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">RKResponseDescriptor *responseDescriptor = 
-    [RKResponseDescriptor responseDescriptorWithMapping:mapping 
-    method:RKRequestMethodAny 
-    pathPattern:nil 
-    keyPath:nil 
-    statusCodes:nil];
-NSString *urlString = 
-    @"http://api.twitter.com/1/statuses/public_timeline.json"
-NSURL *url = [NSURL URLWithString:urlString];
+					<h2>Load sessions</h2>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">NSURL *url = [NSURL URLWithString:
+    @"http://api.go-opendata.ca/schedule/?format=json"];
 NSURLRequest *request = [NSURLRequest requestWithURL:url];
 RKObjectRequestOperation *operation = 
-    [[RKObjectRequestOperation alloc] initWithRequest:request 
-    responseDescriptors:@[responseDescriptor]]; 
+	[[RKObjectRequestOperation alloc] 
+		initWithRequest:request responseDescriptors:@[descriptor]];
 [operation setCompletionBlockWithSuccess:
-    ^(RKObjectRequestOperation *operation, RKMappingResult *result) {
-    NSLog(@"The public timeline Tweets: %@", [result array]);
-} failure:nil];
+  ^(RKObjectRequestOperation *operation, RKMappingResult *result)
+  {
+    NSLog(@"The sessions are: %@", [result array]);
+    self.sessions = [result array];
+  } failure:^(RKObjectRequestOperation *operation, NSError *error)
+  {
+    NSLog(@"error: %@", error);
+    self.sessions = nil;
+}];
 [operation start];</code></pre>
 				</section>
 
 				<section>
 					<h2>Add a tableview in the storyboard</h2>
+					<p>Drag & drop</p>
+					<p>Create a custom UITableViewController subclass & assign it in the storyboard</p>
+					<p>Add a prototype cell in the storyboard</p>
 				</section>
 
 				<section>
-					<h2>Show the tweets as cells in the storyboard</h2>
+					<h2>Show the sessions as cells in the storyboard</h2>
+					<p>Add a property to the tableview to hold the sessions</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">@interface SessionsTableViewController : UITableViewController
+@property (nonatomic, retain) NSArray *sessions;
+@end</code></pre>
+					<p>Move the loading code into the tableview and assign the results to the property when loading is done</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  
+  RKObjectMapping *mapping = ...
+  [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
+   {
+     NSLog(@"The sessions are: %@", [result array]);
+     self.sessions = [result array];
+     [self.tableView reloadData];
+   } failure:^(RKObjectRequestOperation *operation, NSError *error)
+   {
+     NSLog(@"error: %@", error);
+     self.sessions = nil;
+     [self.tableView reloadData];
+   }];
+  [operation start];
+}
+</code></pre>
+			</section>
+
+			<section>
+					<h2>Show the sessions as cells in the storyboard (continued)</h2>
+					<p>Implement data source & delegate methods:</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+  return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+  if (self.sessions != nil)
+  {
+    return self.sessions.count;
+  }
+  return 0;
+}</code></pre>
 				</section>
 
+
 				<section>
-					<h2>Tapping on a tweet should show a larger view of the tweet (transition to a detail view)</h2>
+					<h2>Show the sessions as cells in the storyboard (continued)</h2>
+					<p>Implement data source & delegate methods:</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  static NSString *CellIdentifier = @"SessionCell";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+  
+  // Configure the cell...
+  RKConferenceSession *session = self.sessions[indexPath.row];
+  cell.textLabel.text = session.name;
+  cell.detailTextLabel.text = session.start_time;
+  
+  return cell;
+}</code></pre>
+				</section>
+				<section>
+					<h2>Tapping on a session should show a larger view of the session with details</h2>
 				</section>
 
 				<section>
