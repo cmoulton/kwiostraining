@@ -94,7 +94,7 @@
 						<tr>
 							<td>7</td>
 							<td>4, 4S, 5, 5C, 5S (June 2010)</td>
-							<td>2nd, 3rd, 4th (March 2011) </td>
+							<td>2nd, 3rd, 4th, Mini, Mini Retina (March 2011)</td>
 							<td>5th (Sept 2012)</td>
 						</tr>
 						<tr>
@@ -237,6 +237,30 @@ if ([AClass class]) {
 
 				<section>
 					<h2>Install & import RESTKit</h2>
+					<p>First create an empty project</p>
+					<p>In Xcode preferences menu, go to Downloads then Components. Install or update the Command Line tools</p>
+					<pre><code data-trim>$ sudo gem update --system
+$ [sudo] gem install cocoapods
+$ pod setup
+
+// Add Podfile to project: In Terminal
+$ cd /path/to/MyProject
+$ touch Podfile
+$ edit Podfile
+platform :ios, '6.0' // or '7.0'
+pod 'RestKit', '~> 0.20.0'
+
+$ pod install
+
+// Now always use the workspace, not the project
+$ open MyProject.xcworkspace
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Install & import RESTKit</h2>
+					<pre><code data-trim>#import &ltRestKit/RestKit.h&gt</code></pre>
+					<p>Add required libraries: SystemConfiguration & MobileCoreServices </p>
 				</section>
 
 				<section>
