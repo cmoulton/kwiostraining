@@ -207,9 +207,11 @@ if ([AClass class]) {
 						<p><a href="http://parse.com">Parse</a>, <a href="http://kinvey.com">Kinvey</a>, <a href="http://stackmob.com">StackMob</a>, <a href="http://www.appcelerator.com/cloud/">Appcelerator Cloud</a></p>
 						<p>Provide server-based functionality:</p>
 						<p>Database shared between users</p>
+						<p>Social login / user accounts</p>
 						<p>File storage</p>
 						<p>Push notifications</p>
 						<p>Custom server code</p>
+						<p>Scalability</p>
 				</section>
 
 				<section>
@@ -222,11 +224,69 @@ if ([AClass class]) {
 				</section>
 
 				<section>
-					<h2>Exercise 2: JSON REST APIs, Storyboards & Tableviews</h2>
+					<h2>Exercise 2: Twitter Client</h2>
+					<p>JSON REST APIs, Storyboards & Tableviews</p>
 					<p>Install & import RESTKit</p>
-					<p></p>
-					<p>Tapping on the button should change the label text (label.text) to display the number of times the button has been pressed</p>
-					<p>([NSString stringWithFormat:@"Taps: %d", self.tapCount])</p>
+					<p>Create a Tweet Model Class</p>
+					<p>Load public tweets</p>
+					<p>Add a tableview in the storyboard</p>
+					<p>Show the tweets as cells in the storyboard</p>
+					<p>Tapping on a tweet should show a larger view of the tweet (transition to a detail view)</p>
+				</section>
+
+				<section>
+					<h2>Install & import RESTKit</h2>
+				</section>
+
+				<section>
+					<h2>Create a Tweet Model Class</h2>
+					<pre><code data-trim>@interface RKTweet : NSObject
+@property (nonatomic, copy) NSNumber *userID;
+@property (nonatomic, copy) NSString *username;
+@property (nonatomic, copy) NSString *text;
+@end
+
+RKObjectMapping *mapping = [RKObjectMapping 
+    mappingForClass:[RKTweet class]];
+[mapping addAttributeMappingsFromDictionary:@{
+    @"user.name":   @"username",
+    @"user.id":     @"userID",
+    @"text":        @"text"
+}];</code></pre>
+				</section>
+
+				<section>
+					<h2>Load public tweets</h2>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">RKResponseDescriptor *responseDescriptor = 
+    [RKResponseDescriptor responseDescriptorWithMapping:mapping 
+    method:RKRequestMethodAny 
+    pathPattern:nil 
+    keyPath:nil 
+    statusCodes:nil];
+NSString *urlString = 
+    @"http://api.twitter.com/1/statuses/public_timeline.json"
+NSURL *url = [NSURL URLWithString:urlString];
+NSURLRequest *request = [NSURLRequest requestWithURL:url];
+RKObjectRequestOperation *operation = 
+    [[RKObjectRequestOperation alloc] initWithRequest:request 
+    responseDescriptors:@[responseDescriptor]]; 
+[operation setCompletionBlockWithSuccess:
+    ^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+    NSLog(@"The public timeline Tweets: %@", [result array]);
+} failure:nil];
+[operation start];</code></pre>
+				</section>
+
+				<section>
+					<h2>Add a tableview in the storyboard</h2>
+				</section>
+
+				<section>
+					<h2>Show the tweets as cells in the storyboard</h2>
+				</section>
+
+				<section>
+					<h2>Tapping on a tweet should show a larger view of the tweet (transition to a detail view)</h2>
 				</section>
 
 				<section>
@@ -236,7 +296,6 @@ if ([AClass class]) {
 
                 <div style="float:none; width: 100%">
                     <p><a href="kwiostraining.eventbrite.ca">KW iOS Training</a></p>
-                    <p>Device Mock Ups: <a href="http://mockuphone.com/">MockUPhone</a></p>
                 </div>
 
             </section>
