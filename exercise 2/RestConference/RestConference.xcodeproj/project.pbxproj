@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CB448DC38154A77B8FF5128 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED23B26BCB5D452BA28E106F /* libPods.a */; };
+		CF312742182451F60098586B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF312741182451F60098586B /* SystemConfiguration.framework */; };
+		CF312744182451FA0098586B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF312743182451FA0098586B /* MobileCoreServices.framework */; };
+		CF31274A182452B20098586B /* RKConferenceSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CF312749182452B20098586B /* RKConferenceSession.m */; };
+		CF31274C18245BA50098586B /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF31274B18245BA50098586B /* Storyboard.storyboard */; };
+		CF31274F18245BDD0098586B /* SessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF31274E18245BDD0098586B /* SessionsTableViewController.m */; };
+		CF312752182461B60098586B /* SessionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF312751182461B60098586B /* SessionDetailViewController.m */; };
+		CF58957A18244FD50045F4A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957918244FD50045F4A6 /* Foundation.framework */; };
+		CF58957C18244FD50045F4A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957B18244FD50045F4A6 /* CoreGraphics.framework */; };
+		CF58957E18244FD50045F4A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957D18244FD50045F4A6 /* UIKit.framework */; };
+		CF58958418244FD50045F4A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF58958218244FD50045F4A6 /* InfoPlist.strings */; };
+		CF58958618244FD50045F4A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF58958518244FD50045F4A6 /* main.m */; };
+		CF58958A18244FD50045F4A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF58958918244FD50045F4A6 /* AppDelegate.m */; };
+		CF58958C18244FD50045F4A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF58958B18244FD50045F4A6 /* Images.xcassets */; };
+		CF58959318244FD50045F4A6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58959218244FD50045F4A6 /* XCTest.framework */; };
+		CF58959418244FD50045F4A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957918244FD50045F4A6 /* Foundation.framework */; };
+		CF58959518244FD50045F4A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957D18244FD50045F4A6 /* UIKit.framework */; };
+		CF58959D18244FD50045F4A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF58959B18244FD50045F4A6 /* InfoPlist.strings */; };
+		CF58959F18244FD50045F4A6 /* RestConferenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF58959E18244FD50045F4A6 /* RestConferenceTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF58959618244FD50045F4A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF58956E18244FD50045F4A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF58957518244FD50045F4A6;
+			remoteInfo = RestConference;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09B261D17FBB4742AE790C0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		CF312741182451F60098586B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CF312743182451FA0098586B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CF312748182452B20098586B /* RKConferenceSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKConferenceSession.h; sourceTree = "<group>"; };
+		CF312749182452B20098586B /* RKConferenceSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKConferenceSession.m; sourceTree = "<group>"; };
+		CF31274B18245BA50098586B /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		CF31274D18245BDD0098586B /* SessionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsTableViewController.h; sourceTree = "<group>"; };
+		CF31274E18245BDD0098586B /* SessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsTableViewController.m; sourceTree = "<group>"; };
+		CF312750182461B60098586B /* SessionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailViewController.h; sourceTree = "<group>"; };
+		CF312751182461B60098586B /* SessionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailViewController.m; sourceTree = "<group>"; };
+		CF58957618244FD50045F4A6 /* RestConference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestConference.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF58957918244FD50045F4A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CF58957B18244FD50045F4A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CF58957D18244FD50045F4A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CF58958118244FD50045F4A6 /* RestConference-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RestConference-Info.plist"; sourceTree = "<group>"; };
+		CF58958318244FD50045F4A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF58958518244FD50045F4A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CF58958718244FD50045F4A6 /* RestConference-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RestConference-Prefix.pch"; sourceTree = "<group>"; };
+		CF58958818244FD50045F4A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CF58958918244FD50045F4A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CF58958B18244FD50045F4A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CF58959118244FD50045F4A6 /* RestConferenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestConferenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF58959218244FD50045F4A6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CF58959A18244FD50045F4A6 /* RestConferenceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RestConferenceTests-Info.plist"; sourceTree = "<group>"; };
+		CF58959C18244FD50045F4A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF58959E18244FD50045F4A6 /* RestConferenceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestConferenceTests.m; sourceTree = "<group>"; };
+		ED23B26BCB5D452BA28E106F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF58957318244FD50045F4A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF312744182451FA0098586B /* MobileCoreServices.framework in Frameworks */,
+				CF312742182451F60098586B /* SystemConfiguration.framework in Frameworks */,
+				CF58957C18244FD50045F4A6 /* CoreGraphics.framework in Frameworks */,
+				CF58957E18244FD50045F4A6 /* UIKit.framework in Frameworks */,
+				CF58957A18244FD50045F4A6 /* Foundation.framework in Frameworks */,
+				4CB448DC38154A77B8FF5128 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF58958E18244FD50045F4A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF58959318244FD50045F4A6 /* XCTest.framework in Frameworks */,
+				CF58959518244FD50045F4A6 /* UIKit.framework in Frameworks */,
+				CF58959418244FD50045F4A6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF58956D18244FD50045F4A6 = {
+			isa = PBXGroup;
+			children = (
+				CF58957F18244FD50045F4A6 /* RestConference */,
+				CF58959818244FD50045F4A6 /* RestConferenceTests */,
+				CF58957818244FD50045F4A6 /* Frameworks */,
+				CF58957718244FD50045F4A6 /* Products */,
+				09B261D17FBB4742AE790C0A /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		CF58957718244FD50045F4A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF58957618244FD50045F4A6 /* RestConference.app */,
+				CF58959118244FD50045F4A6 /* RestConferenceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF58957818244FD50045F4A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF312743182451FA0098586B /* MobileCoreServices.framework */,
+				CF312741182451F60098586B /* SystemConfiguration.framework */,
+				CF58957918244FD50045F4A6 /* Foundation.framework */,
+				CF58957B18244FD50045F4A6 /* CoreGraphics.framework */,
+				CF58957D18244FD50045F4A6 /* UIKit.framework */,
+				CF58959218244FD50045F4A6 /* XCTest.framework */,
+				ED23B26BCB5D452BA28E106F /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF58957F18244FD50045F4A6 /* RestConference */ = {
+			isa = PBXGroup;
+			children = (
+				CF58958818244FD50045F4A6 /* AppDelegate.h */,
+				CF58958918244FD50045F4A6 /* AppDelegate.m */,
+				CF31274B18245BA50098586B /* Storyboard.storyboard */,
+				CF58958B18244FD50045F4A6 /* Images.xcassets */,
+				CF312748182452B20098586B /* RKConferenceSession.h */,
+				CF312749182452B20098586B /* RKConferenceSession.m */,
+				CF31274D18245BDD0098586B /* SessionsTableViewController.h */,
+				CF31274E18245BDD0098586B /* SessionsTableViewController.m */,
+				CF312750182461B60098586B /* SessionDetailViewController.h */,
+				CF312751182461B60098586B /* SessionDetailViewController.m */,
+				CF58958018244FD50045F4A6 /* Supporting Files */,
+			);
+			path = RestConference;
+			sourceTree = "<group>";
+		};
+		CF58958018244FD50045F4A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF58958118244FD50045F4A6 /* RestConference-Info.plist */,
+				CF58958218244FD50045F4A6 /* InfoPlist.strings */,
+				CF58958518244FD50045F4A6 /* main.m */,
+				CF58958718244FD50045F4A6 /* RestConference-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF58959818244FD50045F4A6 /* RestConferenceTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF58959E18244FD50045F4A6 /* RestConferenceTests.m */,
+				CF58959918244FD50045F4A6 /* Supporting Files */,
+			);
+			path = RestConferenceTests;
+			sourceTree = "<group>";
+		};
+		CF58959918244FD50045F4A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF58959A18244FD50045F4A6 /* RestConferenceTests-Info.plist */,
+				CF58959B18244FD50045F4A6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF58957518244FD50045F4A6 /* RestConference */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF5895A218244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestConference" */;
+			buildPhases = (
+				7B472DE573C549BF8AC74503 /* Check Pods Manifest.lock */,
+				CF58957218244FD50045F4A6 /* Sources */,
+				CF58957318244FD50045F4A6 /* Frameworks */,
+				CF58957418244FD50045F4A6 /* Resources */,
+				295FEA67088246F182112D05 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RestConference;
+			productName = RestConference;
+			productReference = CF58957618244FD50045F4A6 /* RestConference.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF58959018244FD50045F4A6 /* RestConferenceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF5895A518244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestConferenceTests" */;
+			buildPhases = (
+				CF58958D18244FD50045F4A6 /* Sources */,
+				CF58958E18244FD50045F4A6 /* Frameworks */,
+				CF58958F18244FD50045F4A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF58959718244FD50045F4A6 /* PBXTargetDependency */,
+			);
+			name = RestConferenceTests;
+			productName = RestConferenceTests;
+			productReference = CF58959118244FD50045F4A6 /* RestConferenceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF58956E18244FD50045F4A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Teak Mobile Inc";
+				TargetAttributes = {
+					CF58959018244FD50045F4A6 = {
+						TestTargetID = CF58957518244FD50045F4A6;
+					};
+				};
+			};
+			buildConfigurationList = CF58957118244FD50045F4A6 /* Build configuration list for PBXProject "RestConference" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF58956D18244FD50045F4A6;
+			productRefGroup = CF58957718244FD50045F4A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF58957518244FD50045F4A6 /* RestConference */,
+				CF58959018244FD50045F4A6 /* RestConferenceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF58957418244FD50045F4A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF58958418244FD50045F4A6 /* InfoPlist.strings in Resources */,
+				CF58958C18244FD50045F4A6 /* Images.xcassets in Resources */,
+				CF31274C18245BA50098586B /* Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF58958F18244FD50045F4A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF58959D18244FD50045F4A6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		295FEA67088246F182112D05 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		7B472DE573C549BF8AC74503 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF58957218244FD50045F4A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF58958A18244FD50045F4A6 /* AppDelegate.m in Sources */,
+				CF58958618244FD50045F4A6 /* main.m in Sources */,
+				CF312752182461B60098586B /* SessionDetailViewController.m in Sources */,
+				CF31274F18245BDD0098586B /* SessionsTableViewController.m in Sources */,
+				CF31274A182452B20098586B /* RKConferenceSession.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF58958D18244FD50045F4A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF58959F18244FD50045F4A6 /* RestConferenceTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF58959718244FD50045F4A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF58957518244FD50045F4A6 /* RestConference */;
+			targetProxy = CF58959618244FD50045F4A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CF58958218244FD50045F4A6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF58958318244FD50045F4A6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CF58959B18244FD50045F4A6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF58959C18244FD50045F4A6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF5895A018244FD50045F4A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CF5895A118244FD50045F4A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF5895A318244FD50045F4A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09B261D17FBB4742AE790C0A /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestConference/RestConference-Prefix.pch";
+				INFOPLIST_FILE = "RestConference/RestConference-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CF5895A418244FD50045F4A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09B261D17FBB4742AE790C0A /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestConference/RestConference-Prefix.pch";
+				INFOPLIST_FILE = "RestConference/RestConference-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CF5895A618244FD50045F4A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RestConference.app/RestConference";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestConference/RestConference-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "RestConferenceTests/RestConferenceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CF5895A718244FD50045F4A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RestConference.app/RestConference";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestConference/RestConference-Prefix.pch";
+				INFOPLIST_FILE = "RestConferenceTests/RestConferenceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF58957118244FD50045F4A6 /* Build configuration list for PBXProject "RestConference" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF5895A018244FD50045F4A6 /* Debug */,
+				CF5895A118244FD50045F4A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF5895A218244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestConference" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF5895A318244FD50045F4A6 /* Debug */,
+				CF5895A418244FD50045F4A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF5895A518244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestConferenceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF5895A618244FD50045F4A6 /* Debug */,
+				CF5895A718244FD50045F4A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF58956E18244FD50045F4A6 /* Project object */;
+}

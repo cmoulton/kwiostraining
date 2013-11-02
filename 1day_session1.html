@@ -70,8 +70,34 @@
 				</section>
 
 				<section>
+					<h2>Why iOS?</h2>
+						<p>App Store revenues: $5B im 2012</p>
+						<p>Employment & contract opportunities</p>
+						<p>Something different</p>
+						<p>Getting to know you: Why? What's your background?</p>
+				</section>
+
+				<section>
+					<h2>Why native apps?</h2>
+						<p>Speed</p>
+						<p>Ease of UI development & hardware integration</p>
+						<p>Richer UX</p>
+						<p>Earlier access to all device features</p>
+						<p>Easier persistence and offline operation</p>
+						<p><em>More this afternoon</em></p>
+				</section>
+
+				<section>
+					<h2>What stops devs from getting in to iOS?</h2>
+						<p>Syntax</p>
+						<p>Design patterns</p>
+						<p>Interface Builder</p>
+						<p>Apple's web-based tools</p>
+				</section>
+
+				<section>
 					<h2>Schedule</h2>
-						<p>Session 1: Design Patterns & Obj-C Features, Apple's Tools, SDK & Core Classes</p>
+						<p><b>Session 1: Design Patterns & Obj-C Features, Apple's Tools, SDK & Core Classes</b></p>
 						<p>Exercise 1: Interface Builder, IBOutlets & IBActions</p>
 						<p><em>Lunch</em></p>
 						<p>Session 2: iOS App Ecosystem, 3rd Party Tools & Testing, Key Resources</p>
@@ -151,11 +177,11 @@
 				<section>
 					<h2>Objective-C: Classes</h2>
 					<p>Messaging:</p>
-						<pre><code data-trim>[receiverPointer message];</code></pre>
-						<pre><code data-trim>[receiverPointer messageWithParameter:aParameter];</code></pre>
+						<pre><code data-trim>[receiver message];</code></pre>
+						<pre><code data-trim>[receiver messageWithParameter:aParameter];</code></pre>
 
 					<p>Create an Instance of a Class & Call Methods</p>
-					<pre><code data-trim>ClassName * myClass = [[ClassName alloc] init];
+					<pre><code data-trim>ClassName *myClass = [[ClassName alloc] init];
 
 [myClass doIt];
 
@@ -165,12 +191,30 @@ id returnValue = [myClass doItWithA:anA andB:aB];
 				</section>
 
 				<section>
+					<h2>Objective-C: Variables</h2>
+					<pre><code data-trim>anyType myVariable;</code></pre>
+					<pre><code data-trim>NSInteger anInteger;
+NSObject *anObject;
+id anotherObject;</code></pre>
+					<p>Common Types</p>
+					<p>int (NSInteger), float, double</p>
+					<p>BOOL: YES, NO, TRUE, FALSE</p>
+					<p>ClassName *: e.g., NSString *, NSArray *</p>
+					<p>id: Ref to any object (NSObject * or subclass)</p>
+				</section>
+
+				<section>
 					<h2>Objective-C: Properties</h2>
 					<pre>myClass.myString = @"a String";
 [myClass setMyString:@"a String"];
 aString = myClass.myString;
 aString = [myClass myString];</code></pre>
-					<p>Qualifiers</p>
+					<p>Compile-time autosynthesis since Xcode 4.4</p>
+				</section>
+
+				<section>
+					<h2>Objective-C: Properties</h2>
+					<p>Qualifiers in declaration</p>
 					<pre><code data-trim>@property (nonatomic, strong) aType *aProperty;</code></pre>
 					<p>ARC: strong, weak</p>
 					<p>Primitives: assign, copy</p>
@@ -179,22 +223,12 @@ aString = [myClass myString];</code></pre>
 				</section>
 
 				<section>
-					<h2>Objective-C: Variables</h2>
-					<pre><code data-trim>anyType myVariable;</code></pre>
-					<p>Common Types</p>
-					<p>int, float, double</p>
-					<p>BOOL: YES, NO, TRUE, FALSE</p>
-					<p>ClassName *: e.g., NSString *, NSArray *</p>
-					<p>id: Ref to any object</p>
-				</section>
-
-				<section>
 					<h2>Objective-C: NSString</h2>
-					<pre><code data-trim>NSString *personOne = @"Ray"; 
-NSString *personTwo = @"Shawn"; 
-NSString *combinedString = [NSString stringWithFormat: 
-  @"%@: Hello, %@!", personOne, personTwo]; 
-NSLog(@"%@", combinedString);</code></pre>
+					<pre><code data-trim>NSString *catOne = @"Mittens"; 
+NSString *catTwo = @"Mr. Bigglesworth"; 
+NSString *statement = [NSString stringWithFormat: 
+  @"The cats to be worshipped are %@ and %@", catOne, catTwo]; 
+NSLog(@"%@", statement);</code></pre>
 
 <pre><code data-trim>NSString *tipString = @"24.99"; 
 float tipFloat = [tipString floatValue];</code></pre>
@@ -203,17 +237,18 @@ float tipFloat = [tipString floatValue];</code></pre>
 
 				<section>
 					<h2>Objective-C: NSArray</h2>
-					<pre><code data-trim>NSMutableArray *array = [NSMutableArray arrayWithObjects: 
-   personOne, personTwo, nil]; 
-[array addObject:@"Waldo"];
-NSString *waldo = [anArray objectAtIndex:2];
-NSLog(@"%d items!", array.count); 
+					<pre><code data-trim style="font-size: 20pt;">NSMutableArray *array = [NSMutableArray arrayWithObjects: 
+   catOne, catTwo, nil]; 
+[array addObject:@"Sylvester"];
+NSLog(@"That cat's name is: %@", sylvester);
+NSString *sylvester = [array objectAtIndex:2];
+NSLog(@"%d cats!", array.count); 
 
-for (NSString *person in array) { 
-  NSLog(@"Person: %@", person); 
-} 
+for (NSString *cat in array) { 
+  NSLog(@"Cat: %@", cat); 
+}</code></pre>
 
-// Xcode 4.4+ alt: array[2] 
+<pre><code data-trim style="font-size: 20pt;">// Xcode 4.4+ alt: array[2] 
 NSArray *anArray = @[@"John", @"Jane", "Waldo"];
 NSString *waldo = anArray[2];</code></pre>
 							<p>Also NSMutableArray, NSSet, NSDictionary</p>
@@ -249,8 +284,18 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 				</section>
 
 				<section>
+					<h2>MVC</h2>
+						<p>Model: Data Model Objects</p>
+						<p>View: UIView & subclasses</p>
+						<p>Controller: UIViewController & subclasses</p>
+						<p>Model <-> Controller <-> View</p>
+						<p>Seldom code views</p>
+						<p>(E.g., UITableView)</p>
+				</section>
+
+				<section>
 					<h2>Singleton</h2>
-						<p>AppDelegate, NSUserDefaults, UIScreen, NSFileManager</p>
+						<p>AppDelegate, NSUserDefaults, NSFileManager</p>
 						<p>Common for resources: Reachability, Location Services, Logging, ...</p>
 						<p>Thread-safe access</p>
 						<pre><code data-trim>+ (MySingleton *)sharedInstance
@@ -265,25 +310,19 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 				</section>
 
 				<section>
-					<h2>MVC</h2>
-						<p>Model: Data Model Objects</p>
-						<p>View: UIView & subclasses</p>
-						<p>Controller: UIViewController & subclasses</p>
-						<p>Model <-> Controller <-> View</p>
-						<p>(Not uncommon to merge Model & View, e.g., UITableviews)</p>
-				</section>
-
-				<section>
 					<h2>Protocol / Delegate</h2>
-						<p>Common in UIKit classes, e.g., UITableview Datasource & Delegate</p>
+						<p>Common in UIKit classes, e.g., UITableView Datasource & Delegate</p>
 						<p>Datasource is a specific type of delegate</p>
-						<pre><code data-trim>@protocol InfoViewDelegate<NSObject>
+						<p>Configuration & composition over inheritance</p>
+						<pre><code data-trim style="font-size:20pt;">@protocol InfoDelegate
 - (void)showAppShareView;
 - (void)restartTour;
+@optional
+- (void)optionalMethod;
 @end
 
 @interface InfoViewController: UIViewController
-@property (nonatomic, strong) NSObject<MyDelegate> *delegate;
+@property (nonatomic, strong) id&ltInfoDelegate&gt delegate;
 @end</code></pre>
 				</section>
 
@@ -297,8 +336,8 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 
 <pre><code data-trim>@interface NSString (MD5)
 - (NSString *)MD5Hash;
-}
 @end</code></pre>
+						<p>No new ivars</p>
 				</section>
 
 				<section>
@@ -335,8 +374,8 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 }
 
 - (void)someOtherMethod {
-id instance = [obj myMethod];
-// not dealloc'd until after this method returns
+  id instance = [obj myMethod];
+  // not dealloc'd until after this method returns
 }</code></pre>
 				</section>
 
@@ -371,10 +410,230 @@ id instance = [obj myMethod];
 @end</code></pre>
 				</section>
 
+				<section>
+					<h2>Apple's Tools</h2>
+						<p>Xcode / Interface Builder</p>
+						<p>iOS Simulator</p>
+						<p>Instruments</p>
+						<p>Developer Portal</p>
+						<p>iTunesConnect</p>
+				</section>
+
+				<section>
+					<h2>iOS Projects: .xcodeproj</h2>
+						<p>Xcode windows</p>
+						<img src="img/xcode.png"/>
+				</section>
+
+				<section>
+					<h2>iOS Projects: Files</h2>
+						<p>Project settings & .plist</p>
+						<p>main.m</p>
+						<p>-Prefix.pch</p>
+						<p>AppDelegate</p>
+						<p>.xib</p>
+						<p>.storyboard</p>
+						<p>.xcassets</p>
+						<p>Tests</p>
+						<p>Live Demo</p>
+				</section>
+
+				<section>
+					<h2>iOS Projects: Build & Run</h2>
+					<p>Simulator: Hardware</p>
+				</section>
+
+				<section>
+					<h2>Connecting UI to Code</h2>
+					<pre><code data-trim style="font-size: 20pt">@property (nonatomic, weak) IBOutlet UIButton *myButton;
+- (IBAction)myAction:(id)sender;</code></pre>
+				</section>
+
+				<section>
+					<h2>UIKit: Bars</h2>
+					<p>Toolbar <img src="img/uikit/mail_toolbar_ipad_2x.png"/></p>
+					<div style="float:left; width: 45%">
+						<p>Status bar <img src="img/uikit/status_bar_default_2x.png"/></p>
+						<p>Navigation bar <img src="img/uikit/nav_bar_ipad_7_2x.png"/></p>
+					</div>
+					<div style="float:right; width: 45%">
+						<p>Tab bar <img src="img/uikit/music_tab_bar_iphone_2x.png"/></p>
+						<p>Search bar <img src="img/uikit/search_bar_prominent_2x.png"/></p>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>UIKit: Content Views</h2>
+					<p>UITableview & UITableviewCell</p>
+					<div style="float:left; width: 33%">
+						Simple<img src="img/uikit/simple_list_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						Grouped<img src="img/uikit/grouped_list_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						Cell Styles<img src="img/uikit/value_1_cell_2x.png"/>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>UIKit: Content Views</h2>
+					<p>UICollectionView</p>
+					<div style="margin-left:auto; margin-right:auto; width: 33%">
+						<img src="img/uikit/collection_view_2x.png"/>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>UIKit: Content Views</h2>
+					<div style="float:left; width: 25%">
+						<p>UIImageView & UIImage</p>
+						<br />
+						<p>UIWebView</p>
+						<br />
+						<p>UITextview</p>
+						<img src="img/uikit/text_view_2x.png"/>
+					</div>
+					<div style="float:left; width: 25%">
+						<p>UIScrollView</p>
+						<img src="img/uikit/scroll_view_2x.png"/>
+					</div>
+					<div style="float:left; width: 25%">
+						<p>UIPage ViewController</p>
+						<img src="img/uikit/page_view.jpg"/>
+					</div>
+					<div style="float:right; width: 25%">
+						<p>Map Kit: MKMapView</p>
+						<img src="img/uikit/map_view_photos_2x.png"/>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>UIKit: iPad Only Content Views</h2>
+					<div style="float:left; width: 35%">
+						<p>UIPopoverController (iPad only)</p>
+						<img src="img/uikit/popover_2x.png"/>
+					</div>
+					<div style="float:right; width: 64%">
+						<p>UISplitViewController (iPad only)</p>
+						<img src="img/uikit/split_view_2x.png"/>
+					</div>
+					<div><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>Key Classes: UI: <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Controls.html#//apple_ref/doc/uid/TP40006556-CH15-SW1">Controls</a>
+
+					</h2>
+					<div style="float:left; width: 33%">
+						<p>Activity indicator (spinner)</p>
+						<img src="img/uikit/activity_indicator_2x.png"/>
+						<p>Picker / Date Picker</p>
+						<img src="img/uikit/date_picker_2x.png"/>
+						<p>Buttons</p>
+						<img src="img/uikit/contact_add_7_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Label</p>
+						<p>Progress view</p>
+						<img src="img/uikit/progress_view_2x.png"/>
+						<p>Refresh control</p>
+						<img src="img/uikit/refresh_control_2x.png"/>
+						<p>Segmented control</p>
+						<img src="img/uikit/segmented_control_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Slider</p>
+						<img src="img/uikit/slider_2x.png"/>
+						<p>Stepper</p>
+						<img src="img/uikit/stepper_2x.png"/>
+						<p>Switch</p>
+						<img src="img/uikit/switch_on_2x.png"/>
+						<p>Text field</p>
+						<img src="img/uikit/text_field_2x.png"/>
+					</div>
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>Key Classes: UI: Temporary Views</h2>
+					<div style="float:left; width: 30%">
+						<p>Alert</p>
+						<img src="img/uikit/alert_2x.png"/>
+					</div>
+					<div style="float:left; width: 30%">
+						<p>Action sheet</p>
+						<img src="img/uikit/action_sheet_iphone_2x.png"/>
+					</div>
+					<div style="float:left; width: 30%">
+						<p>Modal view</p>
+						<img src="img/uikit/modal_view_mail_compose_2x.png"/>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>Key Classes: <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Passbook.html#//apple_ref/doc/uid/TP40006556-CH33-SW1">iOS Technologies</a></h2>
+					<div style="float:left; width: 33%">
+						<p>Keyboard & input views</p>
+						<p>Multitasking</p>
+						<p>Social media & Sharing</p>
+						<p>In-App purchase</p>
+						<p>Game center</p>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Notifications: Push & local</p>
+						<p>iAd</p>
+						<p>AirPrint</p>
+						<p>Location Services</p>
+						<p>Sound</p>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Accessibiligy</p>
+						<p>Edit menu</p>
+						<p>Undo: buttons & shaking</p>
+						<p>iCloud</p>
+						<p>Passbook</p>
+					</div>
+				</section>
 
 				<section>
 					<h2>Resources</h2>
-						<p>http://www.raywenderlich.com/tutorials</p>
+						<p><a href="http://www.raywenderlich.com/tutorials">Ray Wenderlich iPhone Tutorials</a></p>
+						<p><a href-"https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG">Apple Mobile Human Interface Guidelines</a></p>
+				</section>
+
+				<section>
+					<h2>Exercise 1: Tap Counter</h2>
+					<p>Create a project with a button and a label</p>
+					<p>Add an integer property or ivar to track counts</p>
+					<p>Tapping on the button should change the label text (label.text) to display the number of times the button has been pressed</p>
+					<p>([NSString stringWithFormat:@"Taps: %d", self.tapCount])</p>
+					<p><em>Challenges:</em></p>
+					<p><em>Add a clear count button to restart</em></p>
+					<p><em>Change to a shake or swipe gesture counter</em></p>
+				</section>
+
+				<section>
+					<h2>Connecting UI to Code</h2>
+					<pre><code data-trim style="font-size: 18pt">@property (nonatomic, weak) IBOutlet UIButton *counterButton;
+@property (nonatomic, weak) IBOutlet UILabel *counterLabel;
+@property (nonatomic) NSInteger tapCount;
+- (IBAction)incrementAndUpdateCount:(id)sender
+{
+  self.tapCount++;
+  self.counterLabel.text = [NSString stringWithFormat:@"Taps: %d", 
+                            self.tapCount];
+}</code></pre>
 				</section>
 
 				<section>
@@ -384,7 +643,6 @@ id instance = [obj myMethod];
 
                 <div style="float:none; width: 100%">
                     <p><a href="kwiostraining.eventbrite.ca">KW iOS Training</a></p>
-                    <p>Device Mock Ups: <a href="http://mockuphone.com/">MockUPhone</a></p>
                 </div>
 
             </section>

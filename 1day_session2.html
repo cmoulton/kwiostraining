@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>KW iOS Training: Session 2</title>
+
+		<meta name="description" content="KW iOS Training: Session 2">
+		<meta name="author" content="Christina Moulton">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky_lowercase_title.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Beginning Professional iPhone App Development</h1>
+					<p>Christina Moulton, <a href="http://teakmobile.com">Teak Mobile Inc.</a></p>
+                	<p><a href="http://twitter.com/ChristinaMltn">@ChristinaMltn</a>, <a href="mailto:christina@teakmobile.com">christina@teakmobile.com</a></p>
+                	<p><a href="kwiostraining.eventbrite.ca">KW iOS Training</a></p>
+				</section>
+
+				<section>
+					<h2>Schedule</h2>
+						<p>Session 1: Design Patterns & Obj-C Features, Apple's Tools, SDK & Core Classes</p>
+						<p>Exercise 1: Interface Builder, IBOutlets & IBActions</p>
+						<p><em>Lunch</em></p>
+						<p><b>Session 2: iOS App Ecosystem, 3rd Party Tools & Testing, Key Resources</b></p>
+						<p>Exercise 2: JSON REST APIs, Storyboards & Tableviews</p>
+						<p>Session 3: Code Signing, App Store Submission, What Should Be a Native App vs. Web App</p>
+				</section>
+
+				<section>
+					<h2>Session 2:</h2>
+						<p>iOS App Ecosystem</p>
+						<p>3rd Party Tools & Testing</p>
+						<p>Key Resources</p>
+				</section>
+
+				<section>
+					<h2>iOS App Ecosystem</h2>
+						<p>Devices, capabilities, resolutions</p>
+						<p>SDKs</p>
+						<p>Supporting older devices</p>
+						<p>Developer Portal</p>
+						<p>App Store & iTunes Connect</p>
+				</section>
+
+				<section>
+					<h2>Device Capabilities</h2>
+						<p><a href="http://iossupportmatrix.com/">iOSSupportMatrix.com</a></p>
+						<p>Hardware by capabilities <a href="https://developer.apple.com/library/ios/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html#//apple_ref/doc/uid/TP40013599-CH17-SW1">iOS Device Compatibility (Apple)</a></p>
+						<p>If not key feature, check for presence & degrade gracefully (e.g., select photo vs. take photo)</p>
+				</section>
+
+				<section>
+					<h2>Device Resolutions</h2>
+					<img src="img/iosres.png" />
+						<p><a href="http://iosres.com/">iOSRes.com</a></p>
+				</section>
+
+				<section>
+					<h2>SDKs</h2>
+					<table border="1">
+						<tr>
+							<th>SDK</th>
+							<th>iPhone</th>
+							<th>iPad</th>
+							<th>iPod Touch</th>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>4, 4S, 5, 5C, 5S (June 2010)</td>
+							<td>2nd, 3rd, 4th, Mini, Mini Retina (March 2011)</td>
+							<td>5th (Sept 2012)</td>
+						</tr>
+						<tr>
+							<td>6.1.3</td>
+							<td>3GS (June 2009)</td>
+							<td></td>
+							<td>4th (Sept 2010)</td>
+						</tr>
+						<tr>
+							<td>5.1.1</td>
+							<td></td>
+							<td>1st (April 2010)</td>
+							<td>3rd (Sept 2009)</td>
+						</tr>
+						<tr>
+							<td>4.2.1</td>
+							<td>3G (July 2008)</td>
+							<td></td>
+							<td>2nd (Sept 2008)</td>
+						</tr>
+						<tr>
+							<td>3.1.3</td>
+							<td>1st (June 2007)</td>
+							<td></td>
+							<td>1st (Sept 2007)</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>Supporting Older Devices</h2>
+					<p>Check headers / docs or <a href="http://www.deploymateapp.com">Deploymate</a>
+					<p>Weak link frameworks (mark as optional)</p>
+					<p>Check for support at run time</p>
+					<pre><code data-trim style="font-size:18pt;">NSString *osVersion = [[UIDevice currentDevice] systemVersion];</pre></code>
+
+					<pre><code data-trim style="font-size:18pt;">if ([AClass respondsToSelector:@selector(aMethod)]) {
+    [AClass aMethod];
+} else {
+    //Fail gracefully
+}
+</code></pre>
+
+					<pre><code data-trim style="font-size:18pt;">// iOS 4.2+
+if ([AClass class]) {
+    // Safe to use AClass
+}
+</code></pre>
+				<p><a href="http://www.raywenderlich.com/42591/supporting-multiple-ios-versions-and-devices">RayWenderlich.com Tutorial</a></p>
+				</section>
+
+				<section>
+					<h2>Developer Portal</h2>
+						<p><a href="https://developer.apple.com/devcenter/ios/index.action">Apple iOS Dev Center</a></p>
+						<p>Links to:</p>
+						<p><a href="http://itunesconnect.apple.com">iTunes Connect</a></p>
+						<p><a href="https://developer.apple.com/account">Provisioning Profile</a></p>
+						<p><a href="https://devforums.apple.com/">Apple Developer Forums</a></p>
+						<p>Guidelines, checklists, marketing resources</p>
+						<p>SDK & Xcode downloads (pre-release)</p>
+						<p>Documentation, videos & demo code</p>
+						<p>Human Interface Guidelines (HIG)</p>
+				</section>
+
+				<section>
+					<h2>iOS 3rd Party Tools & Testing</h2>
+						<p>Beta Testing & Crash Reporting: TestFlight, HockeyApp, Crashlytics</p>
+						<p>In-App Analytics: Flurry</p>
+						<p>Sales Analytics: App Annie, Distimo</p>
+						<p>3rd Party Framework Demo</p>
+						<p>iOS 3rd Party Tools: BaaS</p>
+						<p>iOS 3rd Party Libraries & Dependency Management: CocoaPods, AFNetworking, RESTKit</p>
+				</section>
+
+				<section>
+					<h2>Beta Testing & Crash Reporting: <a href="https://testflightapp.com/">TestFlight</a>, <a href="http://hockeyapp.net/features/">HockeyApp</a>, <a href="http://crashlytics.com">Crashlytics</a></h2>
+						<p>Symbolication (.dSYM): Keep your beta & App Store builds!</p>
+						<img src="img/testflight.jpg" />
+				</section>
+
+				<section>
+					<h2>In-App Analytics: <a href="http://flurry.com">Flurry</a></h2>
+						<img src="img/flurry.png" />
+				</section>
+
+				<section>
+					<h2>Sales Analytics: <a href="http://appannie.com">App Annie</a> / <a href="http://distimo.com">Distimo</a></h2>
+					<div style="width: 33%; float: left;">
+						<img src="img/appannie1.jpeg" />
+					</div>
+					<div style="width: 33%; float: left;">
+						<img src="img/appannie2.jpeg" />
+					</div>
+					<div style="width: 33%; float: left;">
+						<img src="img/appannie3.jpeg" />
+					</div>
+				</section>
+
+				<section>
+					<h2>Demo: Integrating 3rd Party API: Flurry</h2>
+						<p>Download</p>
+						<p>Add framework</p>
+						<p>Import header</p>
+						<p>Integrate</p>
+						<p>Customize</p>
+				</section>
+
+				<section>
+					<h2>iOS 3rd Party Tools: Backend as a Service (BaaS)</h2>
+						<p><a href="http://parse.com">Parse</a>, <a href="http://kinvey.com">Kinvey</a>, <a href="http://stackmob.com">StackMob</a>, <a href="http://www.appcelerator.com/cloud/">Appcelerator Cloud</a></p>
+						<p>Provide server-based functionality:</p>
+						<p>Database shared between users</p>
+						<p>Social login / user accounts</p>
+						<p>File storage</p>
+						<p>Push notifications</p>
+						<p>Custom server code</p>
+						<p>Scalability</p>
+				</section>
+
+				<section>
+					<h2>iOS 3rd Party Libraries</h2>
+						<p>Dependency Management: <a href="http://cocoapods.org/">CocoaPods</a></p>
+						<p>RESTful Web Service: <a href="http://restkit.org/">RESTKit</a></p>
+						<p>Networking Framework: <a href="http://afnetworking.com/">AFNetworking</a></p>
+						<p>Custom UI Controls: <a href="http://www.cocoacontrols.com/">Cocoa Controls</a></p>
+						<p>Lots of Frameworks: <a href="http://www.iosframeworks.com/">iOS Frameworks</a></p>
+				</section>
+
+				<section>
+					<h2>Exercise 2: Conference Schedule</h2>
+					<a href="http://go-opendata.ca/documentation/api/">Go Open Data Conference</a>
+					<p>JSON REST APIs, Storyboards & Tableviews</p>
+					<p>Install & import RESTKit</p>
+					<p>Create a Session Model Class</p>
+					<p>Load sessions</p>
+					<p>Add a tableview in the storyboard</p>
+					<p>Show the sessions as cells in the storyboard</p>
+					<p>Tapping on a session should show a larger view of the session with details</p>
+					<p><em>Want to try a lower level exercise? <a href="http://www.raywenderlich.com/2965/how-to-write-an-ios-app-that-uses-a-web-service">Connecting to webservice (RayWenderlich.com)</a></em></p>
+				</section>
+
+				<section>
+					<h2>Install & import RESTKit</h2>
+					<p>First create an empty project</p>
+					<p>In Xcode preferences menu, go to Downloads then Components. Install or update the Command Line tools</p>
+					<pre><code data-trim>$ sudo gem update --system
+$ [sudo] gem install cocoapods
+$ pod setup
+
+// Add Podfile to project: In Terminal
+$ cd /path/to/MyProject
+$ touch Podfile
+$ edit Podfile
+platform :ios, '6.0' // or '7.0'
+pod 'RestKit', '~> 0.20.0'
+
+$ pod install
+
+// Now always use the workspace, not the project
+$ open MyProject.xcworkspace
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Install & import RESTKit</h2>
+					<pre><code data-trim>#import &ltRestKit/RestKit.h&gt</code></pre>
+					<p>Add required libraries: SystemConfiguration & MobileCoreServices </p>
+				</section>
+
+				<section>
+					<h2>Create a Session Model Class</h2>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">@interface RKConferenceSession : NSObject
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *sessionDescription;
+@property (nonatomic, copy) NSString *start_time;
+@property (nonatomic, copy) NSString *end_time;
+@property (nonatomic, copy) NSString *type;
+@end
+
+RKObjectMapping *mapping = [RKObjectMapping 
+mappingForClass:[RKConferenceSession class]];
+  [mapping addAttributeMappingsFromDictionary:
+  @{@"name": @"name", @"description":@"sessionDescription",
+    @"start_time":@"start_time", @"end_time":@"end_time", 
+    @"type":@"type",}];
+
+RKResponseDescriptor *descriptor = 
+						[RKResponseDescriptor responseDescriptorWithMapping:mapping 
+						method:RKRequestMethodAny pathPattern:nil 
+						keyPath:@"objects" statusCodes:nil];</code></pre>
+				</section>
+
+				<section>
+					<h2>Load sessions</h2>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">NSURL *url = [NSURL URLWithString:
+    @"http://api.go-opendata.ca/schedule/?format=json"];
+NSURLRequest *request = [NSURLRequest requestWithURL:url];
+RKObjectRequestOperation *operation = 
+	[[RKObjectRequestOperation alloc] 
+		initWithRequest:request responseDescriptors:@[descriptor]];
+[operation setCompletionBlockWithSuccess:
+  ^(RKObjectRequestOperation *operation, RKMappingResult *result)
+  {
+    NSLog(@"The sessions are: %@", [result array]);
+    self.sessions = [result array];
+  } failure:^(RKObjectRequestOperation *operation, NSError *error)
+  {
+    NSLog(@"error: %@", error);
+    self.sessions = nil;
+}];
+[operation start];</code></pre>
+				</section>
+
+				<section>
+					<h2>Add a tableview in the storyboard</h2>
+					<p>Drag & drop</p>
+					<p>Create a custom UITableViewController subclass & assign it in the storyboard</p>
+					<p>Add a prototype cell in the storyboard, select the detail style</p>
+				</section>
+
+				<section>
+					<h2>Show the sessions as cells in the storyboard</h2>
+					<p>Add a property to the tableview to hold the sessions</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">@interface SessionsTableViewController : UITableViewController
+@property (nonatomic, retain) NSArray *sessions;
+@end</code></pre>
+					<p>Move the loading code into the tableview and assign the results to the property when loading is done</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  
+  RKObjectMapping *mapping = ...
+  [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
+   {
+     NSLog(@"The sessions are: %@", [result array]);
+     self.sessions = [result array];
+     [self.tableView reloadData];
+   } failure:^(RKObjectRequestOperation *operation, NSError *error)
+   {
+     NSLog(@"error: %@", error);
+     self.sessions = nil;
+     [self.tableView reloadData];
+   }];
+  [operation start];
+}
+</code></pre>
+			</section>
+
+			<section>
+					<h2>Show the sessions as cells in the storyboard (continued)</h2>
+					<p>Implement data source & delegate methods:</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+  return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+  if (self.sessions != nil)
+  {
+    return self.sessions.count;
+  }
+  return 0;
+}</code></pre>
+				</section>
+
+
+				<section>
+					<h2>Show the sessions as cells in the storyboard (continued)</h2>
+					<p>Implement data source & delegate methods:</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  static NSString *CellIdentifier = @"SessionCell";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+  
+  // Configure the cell...
+  RKConferenceSession *session = self.sessions[indexPath.row];
+  cell.textLabel.text = session.name;
+  cell.detailTextLabel.text = session.start_time;
+  
+  return cell;
+}</code></pre>
+				</section>
+
+				<section>
+					<h2>Tapping on a session should show a larger view of the session with details</h2>
+					<p>In the storyboard, add a detail view with labels to show the details (set lines = 0 for description so it'll auto-resize)</p>
+					<p>Add a custom UIViewController subclass with IBOutlet properties for each label and a property to hold the Session Model Object</p>
+					<p>Hook up the outlets in the storyboard</p>
+					<p>Embed the tableview in a navigation controller</p>
+					<p>Right-click on the tableview prototype cell and drag a connection to the detail view. Choose "Selection Segue: Push"</p>
+				</section>
+
+				<section>
+					<h2>Tapping on a session should show a larger view of the session with details (continued)</h2>
+					<p>Now we see the detail view, but the details aren't being set</p>
+					<p>In the tableview controller, we need to set the properties in prepareForSegue:</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">#import "SessionDetailViewController.h"
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  // Figure out which cell they tapped on
+  NSInteger selectionIndex = 
+    [self.tableView indexPathForSelectedRow].row;
+  RKConferenceSession *session = self.sessions[selectionIndex];
+  
+  // Get the new view controller
+  SessionDetailViewController *detailViewController = 
+    (SessionDetailViewController *)[segue destinationViewController];
+  // Pass the selected object to the new view controller.
+  detailViewController.session = session;
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Tapping on a session should show a larger view of the session with details (continued)</h2>
+					<p>Set all of the label text in the detail view:</p>
+					<pre><code data-trim style="font-size:16pt; line-height:1em; display: block;">- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  if (self.session)
+  {
+    self.nameLabel.text = self.session.name;
+    self.startTimeLabel.text = self.session.start_time;
+    self.endTimeLabel.text = self.session.end_time;
+    self.typeLabel.text = self.session.type;
+    self.descriptionLabel.text = self.session.sessionDescription;
+  }
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
+				</section>
+
+				<section>
+                <h1>Questions?</h1>
+                <p>Christina Moulton, <a href="http://teakmobile.com">Teak Mobile Inc.</a></p>
+                <p><a href="http://twitter.com/ChristinaMltn">@ChristinaMltn</a>, <a href="mailto:christina@teakmobile.com">christina@teakmobile.com</a></p>
+
+                <div style="float:none; width: 100%">
+                    <p><a href="kwiostraining.eventbrite.ca">KW iOS Training</a></p>
+                </div>
+
+            </section>
+
+			</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				progress: true,
+				history: true,
+				center: true,
+            	controls: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					/*{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },*/
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
+</li>
