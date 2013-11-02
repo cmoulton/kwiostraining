@@ -25,7 +25,7 @@
 		CF58959418244FD50045F4A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957918244FD50045F4A6 /* Foundation.framework */; };
 		CF58959518244FD50045F4A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF58957D18244FD50045F4A6 /* UIKit.framework */; };
 		CF58959D18244FD50045F4A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF58959B18244FD50045F4A6 /* InfoPlist.strings */; };
-		CF58959F18244FD50045F4A6 /* RestTweetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF58959E18244FD50045F4A6 /* RestTweetTests.m */; };
+		CF58959F18244FD50045F4A6 /* RestConferenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF58959E18244FD50045F4A6 /* RestConferenceTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +34,7 @@
 			containerPortal = CF58956E18244FD50045F4A6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CF58957518244FD50045F4A6;
-			remoteInfo = RestTweet;
+			remoteInfo = RestConference;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,22 +49,22 @@
 		CF31274E18245BDD0098586B /* SessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsTableViewController.m; sourceTree = "<group>"; };
 		CF312750182461B60098586B /* SessionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailViewController.h; sourceTree = "<group>"; };
 		CF312751182461B60098586B /* SessionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailViewController.m; sourceTree = "<group>"; };
-		CF58957618244FD50045F4A6 /* RestTweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestTweet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF58957618244FD50045F4A6 /* RestConference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestConference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF58957918244FD50045F4A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CF58957B18244FD50045F4A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CF58957D18244FD50045F4A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CF58958118244FD50045F4A6 /* RestTweet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RestTweet-Info.plist"; sourceTree = "<group>"; };
+		CF58958118244FD50045F4A6 /* RestConference-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RestConference-Info.plist"; sourceTree = "<group>"; };
 		CF58958318244FD50045F4A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CF58958518244FD50045F4A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CF58958718244FD50045F4A6 /* RestTweet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RestTweet-Prefix.pch"; sourceTree = "<group>"; };
+		CF58958718244FD50045F4A6 /* RestConference-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RestConference-Prefix.pch"; sourceTree = "<group>"; };
 		CF58958818244FD50045F4A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CF58958918244FD50045F4A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CF58958B18244FD50045F4A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CF58959118244FD50045F4A6 /* RestTweetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestTweetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF58959118244FD50045F4A6 /* RestConferenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestConferenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF58959218244FD50045F4A6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CF58959A18244FD50045F4A6 /* RestTweetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RestTweetTests-Info.plist"; sourceTree = "<group>"; };
+		CF58959A18244FD50045F4A6 /* RestConferenceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RestConferenceTests-Info.plist"; sourceTree = "<group>"; };
 		CF58959C18244FD50045F4A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CF58959E18244FD50045F4A6 /* RestTweetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestTweetTests.m; sourceTree = "<group>"; };
+		CF58959E18244FD50045F4A6 /* RestConferenceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestConferenceTests.m; sourceTree = "<group>"; };
 		ED23B26BCB5D452BA28E106F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,8 +98,8 @@
 		CF58956D18244FD50045F4A6 = {
 			isa = PBXGroup;
 			children = (
-				CF58957F18244FD50045F4A6 /* RestTweet */,
-				CF58959818244FD50045F4A6 /* RestTweetTests */,
+				CF58957F18244FD50045F4A6 /* RestConference */,
+				CF58959818244FD50045F4A6 /* RestConferenceTests */,
 				CF58957818244FD50045F4A6 /* Frameworks */,
 				CF58957718244FD50045F4A6 /* Products */,
 				09B261D17FBB4742AE790C0A /* Pods.xcconfig */,
@@ -109,8 +109,8 @@
 		CF58957718244FD50045F4A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CF58957618244FD50045F4A6 /* RestTweet.app */,
-				CF58959118244FD50045F4A6 /* RestTweetTests.xctest */,
+				CF58957618244FD50045F4A6 /* RestConference.app */,
+				CF58959118244FD50045F4A6 /* RestConferenceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,7 +129,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CF58957F18244FD50045F4A6 /* RestTweet */ = {
+		CF58957F18244FD50045F4A6 /* RestConference */ = {
 			isa = PBXGroup;
 			children = (
 				CF58958818244FD50045F4A6 /* AppDelegate.h */,
@@ -144,33 +144,33 @@
 				CF312751182461B60098586B /* SessionDetailViewController.m */,
 				CF58958018244FD50045F4A6 /* Supporting Files */,
 			);
-			path = RestTweet;
+			path = RestConference;
 			sourceTree = "<group>";
 		};
 		CF58958018244FD50045F4A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CF58958118244FD50045F4A6 /* RestTweet-Info.plist */,
+				CF58958118244FD50045F4A6 /* RestConference-Info.plist */,
 				CF58958218244FD50045F4A6 /* InfoPlist.strings */,
 				CF58958518244FD50045F4A6 /* main.m */,
-				CF58958718244FD50045F4A6 /* RestTweet-Prefix.pch */,
+				CF58958718244FD50045F4A6 /* RestConference-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CF58959818244FD50045F4A6 /* RestTweetTests */ = {
+		CF58959818244FD50045F4A6 /* RestConferenceTests */ = {
 			isa = PBXGroup;
 			children = (
-				CF58959E18244FD50045F4A6 /* RestTweetTests.m */,
+				CF58959E18244FD50045F4A6 /* RestConferenceTests.m */,
 				CF58959918244FD50045F4A6 /* Supporting Files */,
 			);
-			path = RestTweetTests;
+			path = RestConferenceTests;
 			sourceTree = "<group>";
 		};
 		CF58959918244FD50045F4A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CF58959A18244FD50045F4A6 /* RestTweetTests-Info.plist */,
+				CF58959A18244FD50045F4A6 /* RestConferenceTests-Info.plist */,
 				CF58959B18244FD50045F4A6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -179,9 +179,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CF58957518244FD50045F4A6 /* RestTweet */ = {
+		CF58957518244FD50045F4A6 /* RestConference */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CF5895A218244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestTweet" */;
+			buildConfigurationList = CF5895A218244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestConference" */;
 			buildPhases = (
 				7B472DE573C549BF8AC74503 /* Check Pods Manifest.lock */,
 				CF58957218244FD50045F4A6 /* Sources */,
@@ -193,14 +193,14 @@
 			);
 			dependencies = (
 			);
-			name = RestTweet;
-			productName = RestTweet;
-			productReference = CF58957618244FD50045F4A6 /* RestTweet.app */;
+			name = RestConference;
+			productName = RestConference;
+			productReference = CF58957618244FD50045F4A6 /* RestConference.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CF58959018244FD50045F4A6 /* RestTweetTests */ = {
+		CF58959018244FD50045F4A6 /* RestConferenceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CF5895A518244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestTweetTests" */;
+			buildConfigurationList = CF5895A518244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestConferenceTests" */;
 			buildPhases = (
 				CF58958D18244FD50045F4A6 /* Sources */,
 				CF58958E18244FD50045F4A6 /* Frameworks */,
@@ -211,9 +211,9 @@
 			dependencies = (
 				CF58959718244FD50045F4A6 /* PBXTargetDependency */,
 			);
-			name = RestTweetTests;
-			productName = RestTweetTests;
-			productReference = CF58959118244FD50045F4A6 /* RestTweetTests.xctest */;
+			name = RestConferenceTests;
+			productName = RestConferenceTests;
+			productReference = CF58959118244FD50045F4A6 /* RestConferenceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CF58957118244FD50045F4A6 /* Build configuration list for PBXProject "RestTweet" */;
+			buildConfigurationList = CF58957118244FD50045F4A6 /* Build configuration list for PBXProject "RestConference" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -242,8 +242,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CF58957518244FD50045F4A6 /* RestTweet */,
-				CF58959018244FD50045F4A6 /* RestTweetTests */,
+				CF58957518244FD50045F4A6 /* RestConference */,
+				CF58959018244FD50045F4A6 /* RestConferenceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -317,7 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF58959F18244FD50045F4A6 /* RestTweetTests.m in Sources */,
+				CF58959F18244FD50045F4A6 /* RestConferenceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +326,7 @@
 /* Begin PBXTargetDependency section */
 		CF58959718244FD50045F4A6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CF58957518244FD50045F4A6 /* RestTweet */;
+			target = CF58957518244FD50045F4A6 /* RestConference */;
 			targetProxy = CF58959618244FD50045F4A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -430,8 +430,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RestTweet/RestTweet-Prefix.pch";
-				INFOPLIST_FILE = "RestTweet/RestTweet-Info.plist";
+				GCC_PREFIX_HEADER = "RestConference/RestConference-Prefix.pch";
+				INFOPLIST_FILE = "RestConference/RestConference-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -444,8 +445,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RestTweet/RestTweet-Prefix.pch";
-				INFOPLIST_FILE = "RestTweet/RestTweet-Info.plist";
+				GCC_PREFIX_HEADER = "RestConference/RestConference-Prefix.pch";
+				INFOPLIST_FILE = "RestConference/RestConference-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -455,19 +457,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RestTweet.app/RestTweet";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RestConference.app/RestConference";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RestTweet/RestTweet-Prefix.pch";
+				GCC_PREFIX_HEADER = "RestConference/RestConference-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "RestTweetTests/RestTweetTests-Info.plist";
+				INFOPLIST_FILE = "RestConferenceTests/RestConferenceTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -478,15 +480,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RestTweet.app/RestTweet";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RestConference.app/RestConference";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RestTweet/RestTweet-Prefix.pch";
-				INFOPLIST_FILE = "RestTweetTests/RestTweetTests-Info.plist";
+				GCC_PREFIX_HEADER = "RestConference/RestConference-Prefix.pch";
+				INFOPLIST_FILE = "RestConferenceTests/RestConferenceTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -496,7 +498,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CF58957118244FD50045F4A6 /* Build configuration list for PBXProject "RestTweet" */ = {
+		CF58957118244FD50045F4A6 /* Build configuration list for PBXProject "RestConference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CF5895A018244FD50045F4A6 /* Debug */,
@@ -505,7 +507,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CF5895A218244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestTweet" */ = {
+		CF5895A218244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestConference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CF5895A318244FD50045F4A6 /* Debug */,
@@ -514,7 +516,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CF5895A518244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestTweetTests" */ = {
+		CF5895A518244FD50045F4A6 /* Build configuration list for PBXNativeTarget "RestConferenceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CF5895A618244FD50045F4A6 /* Debug */,
