@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>KW iOS Training: Session 1</title>
+		<title>KW iOS Training: Storyboards</title>
 
 		<meta name="description" content="KW iOS Training: iOS Storyboards: Why, When, & How?">
 		<meta name="author" content="Christina Moulton">
@@ -124,6 +124,7 @@
 }</code></pre>
 
 			</section>
+
 			<section>
 				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
 <pre><code data-trim style="font-size:16pt; line-height:0.5em;">- (UITableViewCell *)tableView:(UITableView *)tableView 
@@ -142,7 +143,94 @@
   }
   return cell;
 }</code></pre>
+			</section>
+
+			<section>
+				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+				<h3>Challenge: Allow editing</h3>
+				<p>Embed tableview controller in navigation controller</p>
+				<p>Switch to NSMutableArrays and use mutableCopy</p>
+				<pre><code data-trim style="font-size:16pt; line-height:0.5em;">_vegetables = [@[@"carrot", @"radish", @"beet"] mutableCopy];
+_fruits = [@[@"apple", @"orange", @"tomato"] mutableCopy];</code></pre>
+				<p>Uncomment & Implement:</p>
+<pre><code data-trim style="font-size:16pt; line-height:0.5em;">self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+- (BOOL)tableView:(UITableView *)tableView 
+  canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return YES;
+}</code></pre>
+			</section>
+			<section>
+				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+				<p>Delegate methods</p>
+<pre><code data-trim style="font-size:18pt; line-height:0.5em;">- (void)tableView:(UITableView *)tableView
+  commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
+  forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (indexPath.section == 0)
+    {
+     [_vegetables removeObjectAtIndex:indexPath.row];
+    }
+    else
+    {
+      [_fruits removeObjectAtIndex:indexPath.row];
+    }
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+  }
+}</code></pre>
+			</section>
+
+			<section>
+				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+<pre><code data-trim style="font-size:18pt; line-height:0.5em;">- (void)tableView:(UITableView *)tableView 
+  moveRowAtIndexPath:(NSIndexPath *)fromIndexPath 
+  toIndexPath:(NSIndexPath *)toIndexPath;
+{
+  NSString * objectToMove;
+  if (fromIndexPath.section == 0)
+  {
+    objectToMove = _vegetables[fromIndexPath.row];
+    [_vegetables removeObject:objectToMove];
+  }
+  else
+  {
+    objectToMove = _fruits[fromIndexPath.row];
+    [_fruits removeObject:objectToMove];
+  }
+  
+  if (toIndexPath.section == 0)
+  {
+    [_vegetables insertObject:objectToMove atIndex:toIndexPath.row];
+  }
+  else
+  {
+    [_fruits insertObject:objectToMove atIndex:toIndexPath.row];
+  }
+}</code></pre>
 		</section>
+
+		<section>
+				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+				<h3>Optional: Block editing some rows</h3>
+<pre><code data-trim style="font-size:18pt; line-height:0.5em;">- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // Return NO if you do not want the item to be re-orderable.
+  NSString *selectedFood;
+  if (indexPath.section == 0)
+  {
+    selectedFood = _vegetables[indexPath.row];
+  }
+  else
+  {
+    selectedFood = _fruits[indexPath.row];
+  }
+  
+  return ![selectedFood isEqualToString:@"tomato"];
+}</code></pre>
+				</section>
+
 
 				<section>
 					<h2>UIKit: Bars</h2>
