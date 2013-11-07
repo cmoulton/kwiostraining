@@ -78,11 +78,15 @@
 
 				<section>
 					<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
-					<p>Create a project</p>
-					<p>Set up a storyboard</p>
-					<p>Add a tableview controller as the initial view controller</p>
+					<p>Create a project, Add a storyboard</p>
+					<p>Remove boilerplate in AppDelegate.m didFinishLaunchingWithOptions:</p>
+					<pre><code data-trim style="font-size:18pt;">- (BOOL)application:(UIApplication *)application 
+  didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    return YES;
+}</code></pre>
+					<p>Set the tableview cell to use a prototype cell with style "Basic" and cell identifier "Cell"</p>
 					<p>Create a custom class for the tableview controller and set it in the storyboard</p>
-					<p>Make sure the tableview is using a prototype cell with style "" and cell identifier "Cell"</p>
 				</section>
 
 				<section>
