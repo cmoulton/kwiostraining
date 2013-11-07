@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF0ACE581821A16000822553 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0ACE571821A16000822553 /* Foundation.framework */; };
-		CF0ACE5A1821A16000822553 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0ACE591821A16000822553 /* CoreGraphics.framework */; };
+		CF0ACE5A1821A16000822553 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0ACE591821A16000822553 /* CoreGraphics.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CF0ACE5C1821A16000822553 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0ACE5B1821A16000822553 /* UIKit.framework */; };
 		CF0ACE621821A16000822553 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF0ACE601821A16000822553 /* InfoPlist.strings */; };
 		CF0ACE641821A16000822553 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0ACE631821A16000822553 /* main.m */; };
@@ -21,6 +21,10 @@
 		CF0ACE791821A16000822553 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0ACE5B1821A16000822553 /* UIKit.framework */; };
 		CF0ACE811821A16000822553 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF0ACE7F1821A16000822553 /* InfoPlist.strings */; };
 		CF0ACE831821A16000822553 /* TapCounterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0ACE821821A16000822553 /* TapCounterTests.m */; };
+		CF712FC9182579EF00606946 /* libFlurry_4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF712FC8182579EF00606946 /* libFlurry_4.3.0.a */; };
+		CF712FCB18257A6000606946 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF712FCA18257A6000606946 /* SystemConfiguration.framework */; };
+		CF712FCD18257A6C00606946 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF712FCC18257A6C00606946 /* Security.framework */; };
+		CF712FCF18257A7000606946 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF712FCE18257A7000606946 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,11 @@
 		CF0ACE7E1821A16000822553 /* TapCounterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TapCounterTests-Info.plist"; sourceTree = "<group>"; };
 		CF0ACE801821A16000822553 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CF0ACE821821A16000822553 /* TapCounterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapCounterTests.m; sourceTree = "<group>"; };
+		CF712FC7182579EF00606946 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		CF712FC8182579EF00606946 /* libFlurry_4.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.0.a; sourceTree = "<group>"; };
+		CF712FCA18257A6000606946 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CF712FCC18257A6C00606946 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CF712FCE18257A7000606946 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +69,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF712FCF18257A7000606946 /* AdSupport.framework in Frameworks */,
+				CF712FCD18257A6C00606946 /* Security.framework in Frameworks */,
+				CF712FCB18257A6000606946 /* SystemConfiguration.framework in Frameworks */,
 				CF0ACE5A1821A16000822553 /* CoreGraphics.framework in Frameworks */,
+				CF712FC9182579EF00606946 /* libFlurry_4.3.0.a in Frameworks */,
 				CF0ACE5C1821A16000822553 /* UIKit.framework in Frameworks */,
 				CF0ACE581821A16000822553 /* Foundation.framework in Frameworks */,
 			);
@@ -101,6 +114,9 @@
 		CF0ACE561821A16000822553 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF712FCE18257A7000606946 /* AdSupport.framework */,
+				CF712FCC18257A6C00606946 /* Security.framework */,
+				CF712FCA18257A6000606946 /* SystemConfiguration.framework */,
 				CF0ACE571821A16000822553 /* Foundation.framework */,
 				CF0ACE591821A16000822553 /* CoreGraphics.framework */,
 				CF0ACE5B1821A16000822553 /* UIKit.framework */,
@@ -118,6 +134,7 @@
 				CF0ACE6C1821A16000822553 /* ViewController.h */,
 				CF0ACE6D1821A16000822553 /* ViewController.m */,
 				CF0ACE6F1821A16000822553 /* Images.xcassets */,
+				CF712FC6182579DC00606946 /* Flurry */,
 				CF0ACE5E1821A16000822553 /* Supporting Files */,
 			);
 			path = TapCounter;
@@ -150,6 +167,15 @@
 				CF0ACE7F1821A16000822553 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF712FC6182579DC00606946 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				CF712FC7182579EF00606946 /* Flurry.h */,
+				CF712FC8182579EF00606946 /* libFlurry_4.3.0.a */,
+			);
+			name = Flurry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +407,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TapCounter/TapCounter-Prefix.pch";
 				INFOPLIST_FILE = "TapCounter/TapCounter-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/christina/sandbox/ios\\ training/kwiostraining/exercise\\ 1/TapCounter/TapCounter",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -394,6 +424,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TapCounter/TapCounter-Prefix.pch";
 				INFOPLIST_FILE = "TapCounter/TapCounter-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/christina/sandbox/ios\\ training/kwiostraining/exercise\\ 1/TapCounter/TapCounter",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,6 +494,7 @@
 				CF0ACE881821A16000822553 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF0ACE891821A16000822553 /* Build configuration list for PBXNativeTarget "TapCounterTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +503,7 @@
 				CF0ACE8B1821A16000822553 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
