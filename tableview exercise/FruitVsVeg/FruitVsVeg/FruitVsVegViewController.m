@@ -9,7 +9,10 @@
 #import "FruitVsVegViewController.h"
 
 @interface FruitVsVegViewController ()
-
+{
+  NSArray *_vegetables;
+  NSArray *_fruits;
+}
 @end
 
 @implementation FruitVsVegViewController

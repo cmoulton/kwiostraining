@@ -91,15 +91,19 @@
 
 				<section>
 					<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
-					<p>Use an NSMutableArray to hold the data for each section</p>
+					<p>Use an NSArray to hold the data for each section</p>
 					<p>Fill the array with a few strings:</p>
 					<pre><code data-trim style="font-size:18pt;">@interface FruitVsVegTableVieController: UITableViewController { 
-  NSMutableArray _vegetables;
-  NSMutableArray _fruits;
+  NSArray *_vegetables;
+  NSArray *_fruits;
 } 
+@end
 
-vegetables = @[[@"carrot", @"radish", @"beet"] mutableCopy];
-fruits = @[[@"apple", @"orange", @"tomato"] mutableCopy];</code></pre>
+- (void)viewDidLoad
+{
+  _vegetables = @[@"carrot", @"radish", @"beet"];
+  _fruits = @[@"apple", @"orange", @"tomato"];
+}</code></pre>
 				</section>
 
 				<section>
