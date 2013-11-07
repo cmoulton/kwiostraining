@@ -131,8 +131,8 @@
 					<p>Check for support at run time</p>
 					<pre><code data-trim style="font-size:18pt;">NSString *osVersion = [[UIDevice currentDevice] systemVersion];</pre></code>
 
-					<pre><code data-trim style="font-size:18pt;">if ([AClass respondsToSelector:@selector(aMethod)]) {
-    [AClass aMethod];
+					<pre><code data-trim style="font-size:18pt;">if ([anObject respondsToSelector:@selector(aMethod)]) {
+    [anObject aMethod];
 } else {
     //Fail gracefully
 }
