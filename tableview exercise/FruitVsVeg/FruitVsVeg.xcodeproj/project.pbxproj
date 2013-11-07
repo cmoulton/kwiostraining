@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF3242BA182BF4F7001D2734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF3242B9182BF4F7001D2734 /* Main.storyboard */; };
+		CF3242BD182BF62A001D2734 /* FruitVsVegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3242BC182BF62A001D2734 /* FruitVsVegViewController.m */; };
 		CF373E22182BF32600A89692 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF373E21182BF32600A89692 /* Foundation.framework */; };
 		CF373E24182BF32600A89692 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF373E23182BF32600A89692 /* CoreGraphics.framework */; };
 		CF373E26182BF32600A89692 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF373E25182BF32600A89692 /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		CF3242B9182BF4F7001D2734 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CF3242BB182BF62A001D2734 /* FruitVsVegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitVsVegViewController.h; sourceTree = "<group>"; };
+		CF3242BC182BF62A001D2734 /* FruitVsVegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FruitVsVegViewController.m; sourceTree = "<group>"; };
 		CF373E1E182BF32600A89692 /* FruitVsVeg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitVsVeg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF373E21182BF32600A89692 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CF373E23182BF32600A89692 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +114,8 @@
 			children = (
 				CF373E30182BF32600A89692 /* AppDelegate.h */,
 				CF373E31182BF32600A89692 /* AppDelegate.m */,
+				CF3242BB182BF62A001D2734 /* FruitVsVegViewController.h */,
+				CF3242BC182BF62A001D2734 /* FruitVsVegViewController.m */,
 				CF373E33182BF32600A89692 /* Images.xcassets */,
 				CF373E28182BF32600A89692 /* Supporting Files */,
 				CF3242B9182BF4F7001D2734 /* Main.storyboard */,
@@ -245,6 +250,7 @@
 			files = (
 				CF373E32182BF32600A89692 /* AppDelegate.m in Sources */,
 				CF373E2E182BF32600A89692 /* main.m in Sources */,
+				CF3242BD182BF62A001D2734 /* FruitVsVegViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
