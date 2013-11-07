@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>KW iOS Training: Storyboards</title>
+
+		<meta name="description" content="KW iOS Training: iOS Storyboards: Why, When, & How?">
+		<meta name="author" content="Christina Moulton">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky_lowercase_title.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>iOS Storyboards: Why, When, & How?</h1>
+					<p>Christina Moulton, <a href="http://teakmobile.com">Teak Mobile Inc.</a></p>
+                	<p><a href="http://twitter.com/ChristinaMltn">@ChristinaMltn</a>, <a href="mailto:christina@teakmobile.com">christina@teakmobile.com</a></p>
+                	<p><a href="kwiostraining.eventbrite.ca">KW iOS Training</a></p>
+				</section>
+
+				<section>
+					<h2>What's a Storyboard?</h2>
+						<p>Segues + Scenes + View Controllers</p>
+						<img src="img/storyboard.png" />
+				</section>
+
+				<section>
+					<h2>Why & When?</h2>
+					<div style="float:left; width: 45%">
+						<h3>Pros</h3>
+						<p>Quick flow mock up</p>
+						<p>Easy to create & see transitions</p>
+						<p>Gestalt view</p>
+						<p>Can use multiple storyboards & xibs</p>
+						<p>Cleaner code, less boilerplate</p>
+						<p>Make Brian do it ;)</p>
+					</div>
+					<div style="float:right; width: 45%">
+						<h3>Cons</h3>
+						<p>iOS5+ only</p>
+						<p>Clutter / screen size</p>
+						<p>Version control conflicts</p>
+						<p>Can’t do all transitions / custom views (yet)</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Exercise 2: Fruit or Vegetable</h2>
+					<p>Create an app with a tableview</p>
+					<p>The tableview should have 2 sections: Fruits & Vegetables</p>
+					<p>Each section should list a few items that are fruits or vegetables</p>
+				</section>
+
+				<section>
+					<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+					<p>Create a project (single view app)</p>
+					<p>Replace UIViewController with UITableViewController (check "Is Initial View Controller")</p>
+					<p>Set the tableview cell to use a prototype cell with style "Basic" and cell identifier "Cell"</p>
+					<p>Check that tableview the datasource & delegate IBOutlets are hooked up</p>
+					<p>Remove the auto-generated ViewController class and add a custom UITableViewController</p>
+				</section>
+
+				<section>
+					<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+					<p>Use an NSArray to hold the data for each section</p>
+					<p>Fill the array with a few strings:</p>
+					<pre><code data-trim style="font-size:18pt;">@interface FruitVsVegTableVieController: UITableViewController { 
+  NSArray *_vegetables;
+  NSArray *_fruits;
+} 
+@end
+
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  _vegetables = @[@"carrot", @"radish", @"beet"];
+  _fruits = @[@"apple", @"orange", @"tomato"];
+}</code></pre>
+				</section>
+
+				<section>
+					<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+					<p>Implement the datasource & delegate methods:</p>
+					<pre><code data-trim style="font-size:16pt; line-height:0.5em;">- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+  return 2;
+}
+
+- (NSString *)tableView:(UITableView *)tableView
+  titleForHeaderInSection:(NSInteger)section
+{
+  return (section == 0)? @"Vegetables": @"Fruit";
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+  numberOfRowsInSection:(NSInteger)section
+{
+  return (section == 0)? _vegetables.count: _fruits.count;
+}</code></pre>
+
+			</section>
+
+			<section>
+				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+<pre><code data-trim style="font-size:16pt; line-height:0.5em;">- (UITableViewCell *)tableView:(UITableView *)tableView 
+  cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  UITableViewCell *cell = [tableView 
+    dequeueReusableCellWithIdentifier:@"Cell"
+    forIndexPath:indexPath];
+  if (indexPath.section == 0)
+  {
+    cell.textLabel.text = _vegetables[indexPath.row];
+  }
+  else
+  {
+    cell.textLabel.text = _fruits[indexPath.row];
+  }
+  return cell;
+}</code></pre>
+			</section>
+
+			<section>
+				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+				<h3>Challenge: Allow editing</h3>
+				<p>Embed tableview controller in navigation controller</p>
+				<p>Switch to NSMutableArrays and use mutableCopy</p>
+				<pre><code data-trim style="font-size:16pt; line-height:0.5em;">_vegetables = [@[@"carrot", @"radish", @"beet"] mutableCopy];
+_fruits = [@[@"apple", @"orange", @"tomato"] mutableCopy];</code></pre>
+				<p>Uncomment & Implement:</p>
+<pre><code data-trim style="font-size:16pt; line-height:0.5em;">self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+- (BOOL)tableView:(UITableView *)tableView 
+  canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return YES;
+}</code></pre>
+			</section>
+			<section>
+				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+				<p>Delegate methods</p>
+<pre><code data-trim style="font-size:18pt; line-height:0.5em;">- (void)tableView:(UITableView *)tableView
+  commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
+  forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (indexPath.section == 0)
+    {
+     [_vegetables removeObjectAtIndex:indexPath.row];
+    }
+    else
+    {
+      [_fruits removeObjectAtIndex:indexPath.row];
+    }
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+  }
+}</code></pre>
+			</section>
+
+			<section>
+				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+<pre><code data-trim style="font-size:18pt; line-height:0.5em;">- (void)tableView:(UITableView *)tableView 
+  moveRowAtIndexPath:(NSIndexPath *)fromIndexPath 
+  toIndexPath:(NSIndexPath *)toIndexPath;
+{
+  NSString * objectToMove;
+  if (fromIndexPath.section == 0)
+  {
+    objectToMove = _vegetables[fromIndexPath.row];
+    [_vegetables removeObject:objectToMove];
+  }
+  else
+  {
+    objectToMove = _fruits[fromIndexPath.row];
+    [_fruits removeObject:objectToMove];
+  }
+  
+  if (toIndexPath.section == 0)
+  {
+    [_vegetables insertObject:objectToMove atIndex:toIndexPath.row];
+  }
+  else
+  {
+    [_fruits insertObject:objectToMove atIndex:toIndexPath.row];
+  }
+}</code></pre>
+		</section>
+
+		<section>
+				<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
+				<h3>Optional: Block editing some rows</h3>
+<pre><code data-trim style="font-size:18pt; line-height:0.5em;">- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // Return NO if you do not want the item to be re-orderable.
+  NSString *selectedFood;
+  if (indexPath.section == 0)
+  {
+    selectedFood = _vegetables[indexPath.row];
+  }
+  else
+  {
+    selectedFood = _fruits[indexPath.row];
+  }
+  
+  return ![selectedFood isEqualToString:@"tomato"];
+}</code></pre>
+				</section>
+
+
+				<section>
+					<h2>UIKit: Bars</h2>
+					<p>Toolbar <img src="img/uikit/mail_toolbar_ipad_2x.png"/></p>
+					<div style="float:left; width: 45%">
+						<p>Status bar <img src="img/uikit/status_bar_default_2x.png"/></p>
+						<p>Navigation bar <img src="img/uikit/nav_bar_ipad_7_2x.png"/></p>
+					</div>
+					<div style="float:right; width: 45%">
+						<p>Tab bar <img src="img/uikit/music_tab_bar_iphone_2x.png"/></p>
+						<p>Search bar <img src="img/uikit/search_bar_prominent_2x.png"/></p>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>UIKit: Content Views</h2>
+					<p>UITableview & UITableviewCell</p>
+					<div style="float:left; width: 33%">
+						Simple<img src="img/uikit/simple_list_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						Grouped<img src="img/uikit/grouped_list_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						Cell Styles<img src="img/uikit/value_1_cell_2x.png"/>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>UIKit: Content Views</h2>
+					<p>UICollectionView</p>
+					<div style="margin-left:auto; margin-right:auto; width: 33%">
+						<img src="img/uikit/collection_view_2x.png"/>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>UIKit: Content Views</h2>
+					<div style="float:left; width: 25%">
+						<p>UIImageView & UIImage</p>
+						<br />
+						<p>UIWebView</p>
+						<br />
+						<p>UITextview</p>
+						<img src="img/uikit/text_view_2x.png"/>
+					</div>
+					<div style="float:left; width: 25%">
+						<p>UIScrollView</p>
+						<img src="img/uikit/scroll_view_2x.png"/>
+					</div>
+					<div style="float:left; width: 25%">
+						<p>UIPage ViewController</p>
+						<img src="img/uikit/page_view.jpg"/>
+					</div>
+					<div style="float:right; width: 25%">
+						<p>Map Kit: MKMapView</p>
+						<img src="img/uikit/map_view_photos_2x.png"/>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>UIKit: iPad Only Content Views</h2>
+					<div style="float:left; width: 35%">
+						<p>UIPopoverController (iPad only)</p>
+						<img src="img/uikit/popover_2x.png"/>
+					</div>
+					<div style="float:right; width: 64%">
+						<p>UISplitViewController (iPad only)</p>
+						<img src="img/uikit/split_view_2x.png"/>
+					</div>
+					<div><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>Key Classes: UI: <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Controls.html#//apple_ref/doc/uid/TP40006556-CH15-SW1">Controls</a>
+
+					</h2>
+					<div style="float:left; width: 33%">
+						<p>Activity indicator (spinner)</p>
+						<img src="img/uikit/activity_indicator_2x.png"/>
+						<p>Picker / Date Picker</p>
+						<img src="img/uikit/date_picker_2x.png"/>
+						<p>Buttons</p>
+						<img src="img/uikit/contact_add_7_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Label</p>
+						<p>Progress view</p>
+						<img src="img/uikit/progress_view_2x.png"/>
+						<p>Refresh control</p>
+						<img src="img/uikit/refresh_control_2x.png"/>
+						<p>Segmented control</p>
+						<img src="img/uikit/segmented_control_2x.png"/>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Slider</p>
+						<img src="img/uikit/slider_2x.png"/>
+						<p>Stepper</p>
+						<img src="img/uikit/stepper_2x.png"/>
+						<p>Switch</p>
+						<img src="img/uikit/switch_on_2x.png"/>
+						<p>Text field</p>
+						<img src="img/uikit/text_field_2x.png"/>
+					</div>
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+					<h2>Key Classes: UI: Temporary Views</h2>
+					<div style="float:left; width: 30%">
+						<p>Alert</p>
+						<img src="img/uikit/alert_2x.png"/>
+					</div>
+					<div style="float:left; width: 30%">
+						<p>Action sheet</p>
+						<img src="img/uikit/action_sheet_iphone_2x.png"/>
+					</div>
+					<div style="float:left; width: 30%">
+						<p>Modal view</p>
+						<img src="img/uikit/modal_view_mail_compose_2x.png"/>
+					</div>
+
+					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
+				</section>
+
+				<section>
+                <h1>Questions?</h1>
+                <p>Christina Moulton, <a href="http://teakmobile.com">Teak Mobile Inc.</a></p>
+                <p><a href="http://twitter.com/ChristinaMltn">@ChristinaMltn</a>, <a href="mailto:christina@teakmobile.com">christina@teakmobile.com</a></p>
+
+                <div style="float:none; width: 100%">
+                    <p><a href="kwiostraining.eventbrite.ca">KW iOS Training</a></p>
+                </div>
+
+            </section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				progress: true,
+				history: true,
+				center: true,
+            	controls: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					/*{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },*/
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

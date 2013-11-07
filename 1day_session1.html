@@ -54,13 +54,13 @@
 					<h2>What will I learn?</h2>
 						<p>How to create basic native iOS apps from scratch without wasting a ton of time trying to work against the tools and the language.</p>
 
-						<p>Issues that stop people from learning iOS development on their own:</p>
-						<ul>
+						<p>Issues that stop people from learning iOS development on their own</p>
+						<!--<ul>
 							<li>Objective-C oddities</li>
 							<li>How to use Xcode, including hooking up views to code</li>
 							<li>What does the SDK make easy and what can’t be done</li>
 							<li>Key resources: tutorials, documentation, and third party libraries</li>
-						</ul>
+						</ul>-->
 				</section>
 
 				<section>
@@ -84,7 +84,7 @@
 						<p>Richer UX</p>
 						<p>Earlier access to all device features</p>
 						<p>Easier persistence and offline operation</p>
-						<p><em>More this afternoon</em></p>
+						<p><em>More later (time permitting)</em></p>
 				</section>
 
 				<section>
@@ -99,10 +99,13 @@
 					<h2>Schedule</h2>
 						<p><b>Session 1: Design Patterns & Obj-C Features, Apple's Tools, SDK & Core Classes</b></p>
 						<p>Exercise 1: Interface Builder, IBOutlets & IBActions</p>
+						<p>Exercise 2: Tableviews, datasources & delegates</p>
 						<p><em>Lunch</em></p>
 						<p>Session 2: iOS App Ecosystem, 3rd Party Tools & Testing, Key Resources</p>
-						<p>Exercise 2: JSON REST APIs, Storyboards & Tableviews</p>
+						<p>(Storyboards & UI Components)</p>
+						<p>Exercise 3: JSON REST APIs & Storyboards</p>
 						<p>Session 3: Code Signing, App Store Submission, What Should Be a Native App vs. Web App</p>
+						<p>Time permitting: In App Purchase, Autolayout</p>
 				</section>
 
 				<section>
@@ -117,9 +120,17 @@
 
 				<section>
 					<h2>Session 1:</h2>
-						<p>Design patterns & language features you need to know including Delegate Pattern, Blocks, Categories, Objective-C Memory Management (Manual & Automatic Reference Counting), Message Sending Model</p>
-						<p>Apple’s Tools: Xcode, Interface Builder, Instruments</p>
-						<p>iOS SDK Frameworks & Core Classes</p>
+						<h3>Design patterns & language features:</h3>
+						<ul>
+							<li>Delegate Pattern</li>
+							<li>Blocks (Closures)</li>
+							<li>Categories</li>
+							<li>Objective-C Memory Management</li>
+							<li>Message Sending Model</li>
+							<br />
+						</ul>
+						<h3>Apple’s Tools: Xcode, Interface Builder</h3>
+						<h3>iOS SDK Frameworks & Core Classes</h3>
 				</section>
 
 				<section>
@@ -134,7 +145,7 @@
 					<h2>Objective-C: Syntax</h2>
 					<p>Class Header (.h)</p>
 					<pre><code data-trim>#import "AnyOtherHeaderFile.h"
-@interface ClassName : SuperClass { 
+@interface MyClass : SuperClass { 
   // declare instance variables 
   // (optional)
   NSInteger _myInteger;
@@ -155,9 +166,9 @@
 				<section>
 					<h2>Objective-C: Syntax</h2>
 					<p>Class Implementation (.m)</p>
-					<pre><code data-trim>#import "YourClassName.h" 
+					<pre><code data-trim>#import "MyClass.h" 
  
-@implementation ClassName 
+@implementation MyClass
 // implement methods (including custom inits)
 - (id)init
 {
@@ -181,13 +192,13 @@
 						<pre><code data-trim>[receiver messageWithParameter:aParameter];</code></pre>
 
 					<p>Create an Instance of a Class & Call Methods</p>
-					<pre><code data-trim>ClassName *myClass = [[ClassName alloc] init];
+					<pre><code data-trim>MyClass *myObject = [[MyClass alloc] init];
 
-[myClass doIt];
+[myObject doIt];
 
-id returnValue = [myClass doItWithA:anA andB:aB];
+id returnValue = [myObject doItWithA:anA andB:aB];
 
-[ClassName classDoIt];</code></pre>
+[MyClass classDoIt];</code></pre>
 				</section>
 
 				<section>
@@ -205,17 +216,17 @@ id anotherObject;</code></pre>
 
 				<section>
 					<h2>Objective-C: Properties</h2>
-					<pre>myClass.myString = @"a String";
-[myClass setMyString:@"a String"];
-aString = myClass.myString;
-aString = [myClass myString];</code></pre>
+					<pre>myObject.myString = @"a String";
+[myObject setMyString:@"a String"];
+aString = myObject.myString;
+aString = [myObject myString];</code></pre>
 					<p>Compile-time autosynthesis since Xcode 4.4</p>
 				</section>
 
 				<section>
 					<h2>Objective-C: Properties</h2>
 					<p>Qualifiers in declaration</p>
-					<pre><code data-trim>@property (nonatomic, strong) aType *aProperty;</code></pre>
+					<pre><code data-trim>@property (nonatomic, strong) aType aProperty;</code></pre>
 					<p>ARC: strong, weak</p>
 					<p>Primitives: assign, copy</p>
 					<p>Threading: nonatomic, atomic</p>
@@ -227,7 +238,8 @@ aString = [myClass myString];</code></pre>
 					<pre><code data-trim>NSString *catOne = @"Mittens"; 
 NSString *catTwo = @"Mr. Bigglesworth"; 
 NSString *statement = [NSString stringWithFormat: 
-  @"The cats to be worshipped are %@ and %@", catOne, catTwo]; 
+  @"The cats to be worshipped are %@ and %@", 
+  catOne, catTwo]; 
 NSLog(@"%@", statement);</code></pre>
 
 <pre><code data-trim>NSString *tipString = @"24.99"; 
@@ -240,8 +252,8 @@ float tipFloat = [tipString floatValue];</code></pre>
 					<pre><code data-trim style="font-size: 20pt;">NSMutableArray *array = [NSMutableArray arrayWithObjects: 
    catOne, catTwo, nil]; 
 [array addObject:@"Sylvester"];
-NSLog(@"That cat's name is: %@", sylvester);
 NSString *sylvester = [array objectAtIndex:2];
+NSLog(@"That cat's name is: %@", sylvester);
 NSLog(@"%d cats!", array.count); 
 
 for (NSString *cat in array) { 
@@ -255,16 +267,8 @@ NSString *waldo = anArray[2];</code></pre>
 				</section>
 
 				<section>
-					<h2>Objective-C: Blocks</h2>
+					<h2>Objective-C: Blocks (Closures)</h2>
 						<p>Encapsulated chunks of code</p>
-						<p>Closures</p>
-						<pre><code data-trim>[UIView animateWithDuration:2.0
-  animations:^ {
-    self.view.alpha = 1.0;
-    self.view.frame = CGRectMake(0, 0, 72, 96);
-  }
-];</code></pre>
-
 <pre><code data-trim>int multiplier = 7;
 int (^myBlock)(int) = ^(int num) {
     return num * multiplier;
@@ -272,6 +276,13 @@ int (^myBlock)(int) = ^(int num) {
 NSLog(@"%d", myBlock(3)); // prints 21
 multiplier = 8;
 NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
+<pre><code data-trim>[UIView animateWithDuration:2.0
+  animations:^ {
+    self.view.alpha = 1.0;
+    self.view.frame = CGRectMake(0, 0, 72, 96);
+  }
+];</code></pre>
+
 				</section>
 
 				<section>
@@ -412,11 +423,10 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 
 				<section>
 					<h2>Apple's Tools</h2>
-						<p>Xcode / Interface Builder</p>
-						<p>iOS Simulator</p>
-						<p>Instruments</p>
-						<p>Developer Portal</p>
-						<p>iTunesConnect</p>
+						<h3>Xcode</h3>
+						<h3>Interface Builder</h3>
+						<h3>iOS Simulator</h3>
+						<h3>Instruments</h3>
 				</section>
 
 				<section>
@@ -450,169 +460,6 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 				</section>
 
 				<section>
-					<h2>UIKit: Bars</h2>
-					<p>Toolbar <img src="img/uikit/mail_toolbar_ipad_2x.png"/></p>
-					<div style="float:left; width: 45%">
-						<p>Status bar <img src="img/uikit/status_bar_default_2x.png"/></p>
-						<p>Navigation bar <img src="img/uikit/nav_bar_ipad_7_2x.png"/></p>
-					</div>
-					<div style="float:right; width: 45%">
-						<p>Tab bar <img src="img/uikit/music_tab_bar_iphone_2x.png"/></p>
-						<p>Search bar <img src="img/uikit/search_bar_prominent_2x.png"/></p>
-					</div>
-
-					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
-				</section>
-
-				<section>
-					<h2>UIKit: Content Views</h2>
-					<p>UITableview & UITableviewCell</p>
-					<div style="float:left; width: 33%">
-						Simple<img src="img/uikit/simple_list_2x.png"/>
-					</div>
-					<div style="float:left; width: 33%">
-						Grouped<img src="img/uikit/grouped_list_2x.png"/>
-					</div>
-					<div style="float:left; width: 33%">
-						Cell Styles<img src="img/uikit/value_1_cell_2x.png"/>
-					</div>
-
-					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
-				</section>
-
-				<section>
-					<h2>UIKit: Content Views</h2>
-					<p>UICollectionView</p>
-					<div style="margin-left:auto; margin-right:auto; width: 33%">
-						<img src="img/uikit/collection_view_2x.png"/>
-					</div>
-
-					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
-				</section>
-
-				<section>
-					<h2>UIKit: Content Views</h2>
-					<div style="float:left; width: 25%">
-						<p>UIImageView & UIImage</p>
-						<br />
-						<p>UIWebView</p>
-						<br />
-						<p>UITextview</p>
-						<img src="img/uikit/text_view_2x.png"/>
-					</div>
-					<div style="float:left; width: 25%">
-						<p>UIScrollView</p>
-						<img src="img/uikit/scroll_view_2x.png"/>
-					</div>
-					<div style="float:left; width: 25%">
-						<p>UIPage ViewController</p>
-						<img src="img/uikit/page_view.jpg"/>
-					</div>
-					<div style="float:right; width: 25%">
-						<p>Map Kit: MKMapView</p>
-						<img src="img/uikit/map_view_photos_2x.png"/>
-					</div>
-
-					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
-				</section>
-
-				<section>
-					<h2>UIKit: iPad Only Content Views</h2>
-					<div style="float:left; width: 35%">
-						<p>UIPopoverController (iPad only)</p>
-						<img src="img/uikit/popover_2x.png"/>
-					</div>
-					<div style="float:right; width: 64%">
-						<p>UISplitViewController (iPad only)</p>
-						<img src="img/uikit/split_view_2x.png"/>
-					</div>
-					<div><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
-				</section>
-
-				<section>
-					<h2>Key Classes: UI: <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Controls.html#//apple_ref/doc/uid/TP40006556-CH15-SW1">Controls</a>
-
-					</h2>
-					<div style="float:left; width: 33%">
-						<p>Activity indicator (spinner)</p>
-						<img src="img/uikit/activity_indicator_2x.png"/>
-						<p>Picker / Date Picker</p>
-						<img src="img/uikit/date_picker_2x.png"/>
-						<p>Buttons</p>
-						<img src="img/uikit/contact_add_7_2x.png"/>
-					</div>
-					<div style="float:left; width: 33%">
-						<p>Label</p>
-						<p>Progress view</p>
-						<img src="img/uikit/progress_view_2x.png"/>
-						<p>Refresh control</p>
-						<img src="img/uikit/refresh_control_2x.png"/>
-						<p>Segmented control</p>
-						<img src="img/uikit/segmented_control_2x.png"/>
-					</div>
-					<div style="float:left; width: 33%">
-						<p>Slider</p>
-						<img src="img/uikit/slider_2x.png"/>
-						<p>Stepper</p>
-						<img src="img/uikit/stepper_2x.png"/>
-						<p>Switch</p>
-						<img src="img/uikit/switch_on_2x.png"/>
-						<p>Text field</p>
-						<img src="img/uikit/text_field_2x.png"/>
-					</div>
-					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
-				</section>
-
-				<section>
-					<h2>Key Classes: UI: Temporary Views</h2>
-					<div style="float:left; width: 30%">
-						<p>Alert</p>
-						<img src="img/uikit/alert_2x.png"/>
-					</div>
-					<div style="float:left; width: 30%">
-						<p>Action sheet</p>
-						<img src="img/uikit/action_sheet_iphone_2x.png"/>
-					</div>
-					<div style="float:left; width: 30%">
-						<p>Modal view</p>
-						<img src="img/uikit/modal_view_mail_compose_2x.png"/>
-					</div>
-
-					<div style="clear:both;"><p><em><small>Images from <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html#//apple_ref/doc/uid/TP40006556-CH12-SW1">Apple HIG</a></small></em></p></a>
-				</section>
-
-				<section>
-					<h2>Key Classes: <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Passbook.html#//apple_ref/doc/uid/TP40006556-CH33-SW1">iOS Technologies</a></h2>
-					<div style="float:left; width: 33%">
-						<p>Keyboard & input views</p>
-						<p>Multitasking</p>
-						<p>Social media & Sharing</p>
-						<p>In-App purchase</p>
-						<p>Game center</p>
-					</div>
-					<div style="float:left; width: 33%">
-						<p>Notifications: Push & local</p>
-						<p>iAd</p>
-						<p>AirPrint</p>
-						<p>Location Services</p>
-						<p>Sound</p>
-					</div>
-					<div style="float:left; width: 33%">
-						<p>Accessibiligy</p>
-						<p>Edit menu</p>
-						<p>Undo: buttons & shaking</p>
-						<p>iCloud</p>
-						<p>Passbook</p>
-					</div>
-				</section>
-
-				<section>
-					<h2>Resources</h2>
-						<p><a href="http://www.raywenderlich.com/tutorials">Ray Wenderlich iPhone Tutorials</a></p>
-						<p><a href-"https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG">Apple Mobile Human Interface Guidelines</a></p>
-				</section>
-
-				<section>
 					<h2>Exercise 1: Tap Counter</h2>
 					<p>Create a project with a button and a label</p>
 					<p>Add an integer property or ivar to track counts</p>
@@ -634,6 +481,37 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
   self.counterLabel.text = [NSString stringWithFormat:@"Taps: %d", 
                             self.tapCount];
 }</code></pre>
+				</section>
+
+				<section>
+					<h2>Key Classes: <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Passbook.html#//apple_ref/doc/uid/TP40006556-CH33-SW1">iOS Technologies</a></h2>
+					<div style="float:left; width: 33%">
+						<p>Keyboard & input views</p>
+						<p>Multitasking</p>
+						<p>Social media & Sharing</p>
+						<p>In-App purchase</p>
+						<p>Game center</p>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Notifications: Push & local</p>
+						<p>iAd</p>
+						<p>AirPrint</p>
+						<p>Location Services</p>
+						<p>Sound</p>
+					</div>
+					<div style="float:left; width: 33%">
+						<p>Accessibility</p>
+						<p>Edit menu</p>
+						<p>Undo: buttons & shaking</p>
+						<p>iCloud</p>
+						<p>Passbook</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Resources</h2>
+						<p><a href="http://www.raywenderlich.com/tutorials">Ray Wenderlich iPhone Tutorials</a></p>
+						<p><a href-"https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG">Apple Mobile Human Interface Guidelines</a></p>
 				</section>
 
 				<section>
@@ -682,4 +560,3 @@ NSLog(@"%d", myBlock(3)); // still prints 21</code></pre>
 
 	</body>
 </html>
-</li>

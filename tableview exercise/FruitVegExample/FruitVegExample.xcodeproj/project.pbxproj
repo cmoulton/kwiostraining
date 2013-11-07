@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFE64B21182BF8C400CAD09A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE64B20182BF8C400CAD09A /* Foundation.framework */; };
+		CFE64B23182BF8C400CAD09A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE64B22182BF8C400CAD09A /* CoreGraphics.framework */; };
+		CFE64B25182BF8C400CAD09A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE64B24182BF8C400CAD09A /* UIKit.framework */; };
+		CFE64B2B182BF8C400CAD09A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFE64B29182BF8C400CAD09A /* InfoPlist.strings */; };
+		CFE64B2D182BF8C400CAD09A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE64B2C182BF8C400CAD09A /* main.m */; };
+		CFE64B31182BF8C400CAD09A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE64B30182BF8C400CAD09A /* AppDelegate.m */; };
+		CFE64B34182BF8C400CAD09A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE64B32182BF8C400CAD09A /* Main.storyboard */; };
+		CFE64B39182BF8C400CAD09A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFE64B38182BF8C400CAD09A /* Images.xcassets */; };
+		CFE64B40182BF8C400CAD09A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE64B3F182BF8C400CAD09A /* XCTest.framework */; };
+		CFE64B41182BF8C400CAD09A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE64B20182BF8C400CAD09A /* Foundation.framework */; };
+		CFE64B42182BF8C400CAD09A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE64B24182BF8C400CAD09A /* UIKit.framework */; };
+		CFE64B4A182BF8C400CAD09A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFE64B48182BF8C400CAD09A /* InfoPlist.strings */; };
+		CFE64B4C182BF8C400CAD09A /* FruitVegExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE64B4B182BF8C400CAD09A /* FruitVegExampleTests.m */; };
+		CFE64B57182BF96600CAD09A /* FruitVegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE64B56182BF96600CAD09A /* FruitVegViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFE64B43182BF8C400CAD09A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFE64B15182BF8C400CAD09A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFE64B1C182BF8C400CAD09A;
+			remoteInfo = FruitVegExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CFE64B1D182BF8C400CAD09A /* FruitVegExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitVegExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE64B20182BF8C400CAD09A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CFE64B22182BF8C400CAD09A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CFE64B24182BF8C400CAD09A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CFE64B28182BF8C400CAD09A /* FruitVegExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FruitVegExample-Info.plist"; sourceTree = "<group>"; };
+		CFE64B2A182BF8C400CAD09A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CFE64B2C182BF8C400CAD09A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CFE64B2E182BF8C400CAD09A /* FruitVegExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FruitVegExample-Prefix.pch"; sourceTree = "<group>"; };
+		CFE64B2F182BF8C400CAD09A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CFE64B30182BF8C400CAD09A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CFE64B33182BF8C400CAD09A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFE64B38182BF8C400CAD09A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CFE64B3E182BF8C400CAD09A /* FruitVegExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruitVegExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE64B3F182BF8C400CAD09A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CFE64B47182BF8C400CAD09A /* FruitVegExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FruitVegExampleTests-Info.plist"; sourceTree = "<group>"; };
+		CFE64B49182BF8C400CAD09A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CFE64B4B182BF8C400CAD09A /* FruitVegExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FruitVegExampleTests.m; sourceTree = "<group>"; };
+		CFE64B55182BF96600CAD09A /* FruitVegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitVegViewController.h; sourceTree = "<group>"; };
+		CFE64B56182BF96600CAD09A /* FruitVegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FruitVegViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFE64B1A182BF8C400CAD09A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE64B23182BF8C400CAD09A /* CoreGraphics.framework in Frameworks */,
+				CFE64B25182BF8C400CAD09A /* UIKit.framework in Frameworks */,
+				CFE64B21182BF8C400CAD09A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFE64B3B182BF8C400CAD09A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE64B40182BF8C400CAD09A /* XCTest.framework in Frameworks */,
+				CFE64B42182BF8C400CAD09A /* UIKit.framework in Frameworks */,
+				CFE64B41182BF8C400CAD09A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFE64B14182BF8C400CAD09A = {
+			isa = PBXGroup;
+			children = (
+				CFE64B26182BF8C400CAD09A /* FruitVegExample */,
+				CFE64B45182BF8C400CAD09A /* FruitVegExampleTests */,
+				CFE64B1F182BF8C400CAD09A /* Frameworks */,
+				CFE64B1E182BF8C400CAD09A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFE64B1E182BF8C400CAD09A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFE64B1D182BF8C400CAD09A /* FruitVegExample.app */,
+				CFE64B3E182BF8C400CAD09A /* FruitVegExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFE64B1F182BF8C400CAD09A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFE64B20182BF8C400CAD09A /* Foundation.framework */,
+				CFE64B22182BF8C400CAD09A /* CoreGraphics.framework */,
+				CFE64B24182BF8C400CAD09A /* UIKit.framework */,
+				CFE64B3F182BF8C400CAD09A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFE64B26182BF8C400CAD09A /* FruitVegExample */ = {
+			isa = PBXGroup;
+			children = (
+				CFE64B2F182BF8C400CAD09A /* AppDelegate.h */,
+				CFE64B30182BF8C400CAD09A /* AppDelegate.m */,
+				CFE64B32182BF8C400CAD09A /* Main.storyboard */,
+				CFE64B38182BF8C400CAD09A /* Images.xcassets */,
+				CFE64B27182BF8C400CAD09A /* Supporting Files */,
+				CFE64B55182BF96600CAD09A /* FruitVegViewController.h */,
+				CFE64B56182BF96600CAD09A /* FruitVegViewController.m */,
+			);
+			path = FruitVegExample;
+			sourceTree = "<group>";
+		};
+		CFE64B27182BF8C400CAD09A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CFE64B28182BF8C400CAD09A /* FruitVegExample-Info.plist */,
+				CFE64B29182BF8C400CAD09A /* InfoPlist.strings */,
+				CFE64B2C182BF8C400CAD09A /* main.m */,
+				CFE64B2E182BF8C400CAD09A /* FruitVegExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFE64B45182BF8C400CAD09A /* FruitVegExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFE64B4B182BF8C400CAD09A /* FruitVegExampleTests.m */,
+				CFE64B46182BF8C400CAD09A /* Supporting Files */,
+			);
+			path = FruitVegExampleTests;
+			sourceTree = "<group>";
+		};
+		CFE64B46182BF8C400CAD09A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CFE64B47182BF8C400CAD09A /* FruitVegExampleTests-Info.plist */,
+				CFE64B48182BF8C400CAD09A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFE64B1C182BF8C400CAD09A /* FruitVegExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFE64B4F182BF8C400CAD09A /* Build configuration list for PBXNativeTarget "FruitVegExample" */;
+			buildPhases = (
+				CFE64B19182BF8C400CAD09A /* Sources */,
+				CFE64B1A182BF8C400CAD09A /* Frameworks */,
+				CFE64B1B182BF8C400CAD09A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FruitVegExample;
+			productName = FruitVegExample;
+			productReference = CFE64B1D182BF8C400CAD09A /* FruitVegExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CFE64B3D182BF8C400CAD09A /* FruitVegExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFE64B52182BF8C400CAD09A /* Build configuration list for PBXNativeTarget "FruitVegExampleTests" */;
+			buildPhases = (
+				CFE64B3A182BF8C400CAD09A /* Sources */,
+				CFE64B3B182BF8C400CAD09A /* Frameworks */,
+				CFE64B3C182BF8C400CAD09A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFE64B44182BF8C400CAD09A /* PBXTargetDependency */,
+			);
+			name = FruitVegExampleTests;
+			productName = FruitVegExampleTests;
+			productReference = CFE64B3E182BF8C400CAD09A /* FruitVegExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFE64B15182BF8C400CAD09A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Teak Mobile Inc";
+				TargetAttributes = {
+					CFE64B3D182BF8C400CAD09A = {
+						TestTargetID = CFE64B1C182BF8C400CAD09A;
+					};
+				};
+			};
+			buildConfigurationList = CFE64B18182BF8C400CAD09A /* Build configuration list for PBXProject "FruitVegExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFE64B14182BF8C400CAD09A;
+			productRefGroup = CFE64B1E182BF8C400CAD09A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFE64B1C182BF8C400CAD09A /* FruitVegExample */,
+				CFE64B3D182BF8C400CAD09A /* FruitVegExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFE64B1B182BF8C400CAD09A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE64B39182BF8C400CAD09A /* Images.xcassets in Resources */,
+				CFE64B2B182BF8C400CAD09A /* InfoPlist.strings in Resources */,
+				CFE64B34182BF8C400CAD09A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFE64B3C182BF8C400CAD09A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE64B4A182BF8C400CAD09A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFE64B19182BF8C400CAD09A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE64B57182BF96600CAD09A /* FruitVegViewController.m in Sources */,
+				CFE64B31182BF8C400CAD09A /* AppDelegate.m in Sources */,
+				CFE64B2D182BF8C400CAD09A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFE64B3A182BF8C400CAD09A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE64B4C182BF8C400CAD09A /* FruitVegExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFE64B44182BF8C400CAD09A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFE64B1C182BF8C400CAD09A /* FruitVegExample */;
+			targetProxy = CFE64B43182BF8C400CAD09A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CFE64B29182BF8C400CAD09A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFE64B2A182BF8C400CAD09A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CFE64B32182BF8C400CAD09A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFE64B33182BF8C400CAD09A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CFE64B48182BF8C400CAD09A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFE64B49182BF8C400CAD09A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFE64B4D182BF8C400CAD09A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CFE64B4E182BF8C400CAD09A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFE64B50182BF8C400CAD09A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FruitVegExample/FruitVegExample-Prefix.pch";
+				INFOPLIST_FILE = "FruitVegExample/FruitVegExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CFE64B51182BF8C400CAD09A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FruitVegExample/FruitVegExample-Prefix.pch";
+				INFOPLIST_FILE = "FruitVegExample/FruitVegExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CFE64B53182BF8C400CAD09A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FruitVegExample.app/FruitVegExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FruitVegExample/FruitVegExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FruitVegExampleTests/FruitVegExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CFE64B54182BF8C400CAD09A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FruitVegExample.app/FruitVegExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FruitVegExample/FruitVegExample-Prefix.pch";
+				INFOPLIST_FILE = "FruitVegExampleTests/FruitVegExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFE64B18182BF8C400CAD09A /* Build configuration list for PBXProject "FruitVegExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFE64B4D182BF8C400CAD09A /* Debug */,
+				CFE64B4E182BF8C400CAD09A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFE64B4F182BF8C400CAD09A /* Build configuration list for PBXNativeTarget "FruitVegExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFE64B50182BF8C400CAD09A /* Debug */,
+				CFE64B51182BF8C400CAD09A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CFE64B52182BF8C400CAD09A /* Build configuration list for PBXNativeTarget "FruitVegExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFE64B53182BF8C400CAD09A /* Debug */,
+				CFE64B54182BF8C400CAD09A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFE64B15182BF8C400CAD09A /* Project object */;
+}
