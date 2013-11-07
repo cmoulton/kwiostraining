@@ -78,16 +78,11 @@
 
 				<section>
 					<h2>Exercise 2: Fruit or Vegetable (Cont'd)</h2>
-					<p>Create a project, Add a storyboard</p>
-					<p>Remove boilerplate in AppDelegate.m didFinishLaunchingWithOptions:</p>
-					<pre><code data-trim style="font-size:18pt;">- (BOOL)application:(UIApplication *)application 
-  didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    return YES;
-}</code></pre>
+					<p>Create a project (single view app)</p>
+					<p>Replace UIViewController with UITableViewController (check "Is Initial View Controller")</p>
 					<p>Set the tableview cell to use a prototype cell with style "Basic" and cell identifier "Cell"</p>
-					<p>Create a custom class for the tableview controller and set it in the storyboard</p>
-					<p> Check that tableview the datasource & delegate IBOutlets are hooked up</p>
+					<p>Check that tableview the datasource & delegate IBOutlets are hooked up</p>
+					<p>Remove the auto-generated ViewController class and add a custom UITableViewController</p>
 				</section>
 
 				<section>
@@ -102,6 +97,7 @@
 
 - (void)viewDidLoad
 {
+  [super viewDidLoad];
   _vegetables = @[@"carrot", @"radish", @"beet"];
   _fruits = @[@"apple", @"orange", @"tomato"];
 }</code></pre>
@@ -138,11 +134,11 @@
     forIndexPath:indexPath];
   if (indexPath.section == 0)
   {
-    cell.textLabel.text = _vegetables[indexPath.section];
+    cell.textLabel.text = _vegetables[indexPath.row];
   }
   else
   {
-    cell.textLabel.text = _fruits[indexPath.section];
+    cell.textLabel.text = _fruits[indexPath.row];
   }
   return cell;
 }</code></pre>

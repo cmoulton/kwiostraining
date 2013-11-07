@@ -1,6 +1,6 @@
 //
-//  FruitVsVegTests.m
-//  FruitVsVegTests
+//  FruitVegExampleTests.m
+//  FruitVegExampleTests
 //
 //  Created by Christina Moulton on 11/7/2013.
 //  Copyright (c) 2013 Teak Mobile Inc. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface FruitVsVegTests : XCTestCase
+@interface FruitVegExampleTests : XCTestCase
 
 @end
 
-@implementation FruitVsVegTests
+@implementation FruitVegExampleTests
 
 - (void)setUp
 {

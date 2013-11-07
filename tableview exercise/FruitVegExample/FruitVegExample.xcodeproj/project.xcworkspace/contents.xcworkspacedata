@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FruitVsVeg.xcodeproj">
+      location = "self:FruitVegExample.xcodeproj">
    </FileRef>
 </Workspace>

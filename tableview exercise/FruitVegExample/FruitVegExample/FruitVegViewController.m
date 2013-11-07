@@ -1,21 +1,22 @@
 //
-//  FruitVsVegViewController.m
-//  FruitVsVeg
+//  FruitVegViewController.m
+//  FruitVegExample
 //
 //  Created by Christina Moulton on 11/7/2013.
 //  Copyright (c) 2013 Teak Mobile Inc. All rights reserved.
 //
 
-#import "FruitVsVegViewController.h"
+#import "FruitVegViewController.h"
 
-@interface FruitVsVegViewController ()
+@interface FruitVegViewController ()
 {
   NSArray *_vegetables;
   NSArray *_fruits;
 }
+
 @end
 
-@implementation FruitVsVegViewController
+@implementation FruitVegViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -54,11 +55,15 @@
   return 2;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+  return (section == 0)? @"Vegetables": @"Fruit";
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
   // Return the number of rows in the section.
-  return 0;
+  return (section == 0)? _vegetables.count: _fruits.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,6 +72,14 @@
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
   
   // Configure the cell...
+  if (indexPath.section == 0)
+  {
+    cell.textLabel.text = _vegetables[indexPath.row];
+  }
+  else
+  {
+    cell.textLabel.text = _fruits[indexPath.row];
+  }
   
   return cell;
 }
