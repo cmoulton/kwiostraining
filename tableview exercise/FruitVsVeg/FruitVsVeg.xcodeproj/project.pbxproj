@@ -116,9 +116,9 @@
 				CF373E31182BF32600A89692 /* AppDelegate.m */,
 				CF3242BB182BF62A001D2734 /* FruitVsVegViewController.h */,
 				CF3242BC182BF62A001D2734 /* FruitVsVegViewController.m */,
+				CF3242B9182BF4F7001D2734 /* Main.storyboard */,
 				CF373E33182BF32600A89692 /* Images.xcassets */,
 				CF373E28182BF32600A89692 /* Supporting Files */,
-				CF3242B9182BF4F7001D2734 /* Main.storyboard */,
 			);
 			path = FruitVsVeg;
 			sourceTree = "<group>";

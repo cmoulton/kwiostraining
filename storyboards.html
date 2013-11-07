@@ -87,6 +87,7 @@
 }</code></pre>
 					<p>Set the tableview cell to use a prototype cell with style "Basic" and cell identifier "Cell"</p>
 					<p>Create a custom class for the tableview controller and set it in the storyboard</p>
+					<p> Check that tableview the datasource & delegate IBOutlets are hooked up</p>
 				</section>
 
 				<section>
@@ -123,7 +124,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
   numberOfRowsInSection:(NSInteger)section
 {
-  return (section == 0)? vegetables.count: fruit.count;
+  return (section == 0)? _vegetables.count: _fruits.count;
 }</code></pre>
 
 			</section>
@@ -137,11 +138,11 @@
     forIndexPath:indexPath];
   if (indexPath.section == 0)
   {
-    cell.textLabel.text = vegetables[indexPath.section];
+    cell.textLabel.text = _vegetables[indexPath.section];
   }
   else
   {
-    cell.textLabel.text = fruits[indexPath.section];
+    cell.textLabel.text = _fruits[indexPath.section];
   }
   return cell;
 }</code></pre>
