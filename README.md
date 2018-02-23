@@ -1,12 +1,8 @@
 Beginning Professional iPhone App Development
 =============
 
-Slides for <a href="http://teakmobile.com/ios-developer-training/">KW iOS Training</a>.
+One Day workshop in "Beginning Professional iPhone App Development"
 
-One Day workshop is "Beginning Professional iPhone App Development"
-
-<p><a href="http://teakmobile.com/ios-developer-training/">Outline & details</a></p>
-<p><a href="http://cmoulton.github.io/kwiostraining">cmoulton.github.io/kwiostraining</a></p>
 <p><a href="http://github.com/cmoulton/kwiostraining">Exercises</a></p>
 
 <p><a href="http://cmoulton.github.io/kwiostraining/1day_session1.html">Session 1</a>
